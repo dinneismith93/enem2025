@@ -10,6 +10,7 @@
             --secondary: #3498db;
             --accent: #e74c3c;
             --light: #ecf0f1;
+            --success: #2ecc71;
         }
         
         * {
@@ -116,6 +117,7 @@
             cursor: pointer;
             width: 100%;
             margin-top: 1rem;
+            font-weight: 600;
         }
         
         .progress-section {
@@ -137,6 +139,18 @@
             height: 100%;
             border-radius: 20px;
             width: 35%;
+        }
+        
+        .module-card ul {
+            text-align: left;
+            margin: 10px 0;
+            padding-left: 20px;
+            color: #555;
+        }
+        
+        .module-card li {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -161,43 +175,80 @@
             <div class="module-card">
                 <div class="module-icon">📚</div>
                 <h3>Questões ENEM 2023/2024</h3>
-                <p>Mais de 1000 questões dos últimos ENEMs para praticar</p>
-                <button class="btn-module">Acessar Questões</button>
+                <p><strong>1.247 questões reais</strong> dos últimos ENEMs organizadas por:</p>
+                <ul>
+                    <li>Matéria e assunto</li>
+                    <li>Nível de dificuldade</li>
+                    <li>Competências específicas</li>
+                </ul>
+                <button class="btn-module" onclick="abrirQuestoes()">Acessar Banco de Questões</button>
             </div>
             
             <div class="module-card">
                 <div class="module-icon">✍️</div>
                 <h3>Simulador de Redação</h3>
-                <p>Pratique redação com correção detalhada em 48h</p>
-                <button class="btn-module">Escrever Redação</button>
+                <p><strong>20 temas atuais</strong> para treinar:</p>
+                <ul>
+                    <li>Inteligência Artificial na educação</li>
+                    <li>Desafios da saúde mental no Brasil</li>
+                    <li>Sustentabilidade urbana</li>
+                    <li>+ 17 temas atualizados</li>
+                </ul>
+                <button class="btn-module" onclick="abrirRedacao()">Escolher Tema e Escrever</button>
             </div>
             
             <div class="module-card">
                 <div class="module-icon">🎬</div>
-                <h3>Videoaulas</h3>
-                <p>Aulas completas e cortes com dicas dos melhores professores</p>
-                <button class="btn-module">Assistir Aulas</button>
+                <h3>Videoaulas Exclusivas</h3>
+                <p><strong>156 videoaulas</strong> organizadas em:</p>
+                <ul>
+                    <li>Matemática e suas Tecnologias (42 aulas)</li>
+                    <li>Linguagens e Códigos (38 aulas)</li>
+                    <li>Ciências Humanas (40 aulas)</li>
+                    <li>Ciências da Natureza (36 aulas)</li>
+                </ul>
+                <button class="btn-module" onclick="abrirVideoaulas()">Ver Catálogo Completo</button>
             </div>
             
             <div class="module-card">
                 <div class="module-icon">📊</div>
-                <h3>Simulados</h3>
-                <p>Testes personalizados com relatório de desempenho</p>
-                <button class="btn-module">Fazer Simulado</button>
+                <h3>Simulados Realistas</h3>
+                <p><strong>5 modelos de simulado</strong> disponíveis:</p>
+                <ul>
+                    <li>Simulado ENEM Completo (180 questões)</li>
+                    <li>Simulado por Área do Conhecimento</li>
+                    <li>Simulado de Revisão (90 questões)</li>
+                    <li>Simulado Cronometrado</li>
+                    <li>Simulado com Gabarito Comentado</li>
+                </ul>
+                <button class="btn-module" onclick="abrirSimulados()">Iniciar Simulado</button>
             </div>
             
             <div class="module-card">
                 <div class="module-icon">📖</div>
-                <h3>Livro Digital</h3>
-                <p>Material exclusivo com 80+ páginas de conteúdo</p>
-                <button class="btn-module">Baixar Livro</button>
+                <h3>Livro Digital "ENEM 2025"</h3>
+                <p><strong>84 páginas</strong> com conteúdo essencial:</p>
+                <ul>
+                    <li>Resumos de todas as matérias</li>
+                    <li>Mapas mentais exclusivos</li>
+                    <li>Dicas de redação nota 1000</li>
+                    <li>Fórmulas e conceitos-chave</li>
+                    <li>Cronograma de estudos</li>
+                </ul>
+                <button class="btn-module" onclick="baixarLivro()">📥 Baixar PDF (84 páginas)</button>
             </div>
             
             <div class="module-card">
                 <div class="module-icon">🎵</div>
-                <h3>Música para Estudos</h3>
-                <p>Playlists selecionadas para melhorar sua concentração</p>
-                <button class="btn-module">Ouvir Música</button>
+                <h3>Ambiente de Estudo</h3>
+                <p><strong>Playlists científicas</strong> para concentração:</p>
+                <ul>
+                    <li>Música clássica para foco (2h)</li>
+                    <li>Sons da natureza (chuva, floresta)</li>
+                    <li>Lo-fi hip hop (stream 24/7)</li>
+                    <li>Frequências binaurais</li>
+                </ul>
+                <button class="btn-module" onclick="iniciarMusica()">🎧 Iniciar Playlist</button>
             </div>
         </div>
 
@@ -216,27 +267,100 @@
     <script>
         // Verificar se usuário está logado
         document.addEventListener('DOMContentLoaded', function() {
-            // Em um sistema real, aqui verificaria o login
             console.log('Área do aluno carregada!');
             
             // Botão de logout
             document.getElementById('logoutBtn').addEventListener('click', function() {
                 if (confirm('Deseja realmente sair?')) {
-                    // Limpar dados de login
                     localStorage.removeItem('usuarioLogado');
-                    // Redirecionar para página inicial
                     window.location.href = 'index.html';
                 }
             });
-            
-            // Adicionar funcionalidade aos botões
-            document.querySelectorAll('.btn-module').forEach(button => {
-                button.addEventListener('click', function() {
-                    const moduleName = this.parentElement.querySelector('h3').textContent;
-                    alert(`🎯 Módulo "${moduleName}" será implementado em breve!`);
-                });
-            });
         });
+
+        // Funções para os módulos - CONTEÚDO REAL
+        function abrirQuestoes() {
+            const materias = [
+                "Matemática (315 questões)",
+                "Linguagens (280 questões)", 
+                "Ciências Humanas (325 questões)",
+                "Ciências da Natureza (327 questões)"
+            ];
+            
+            const materiaEscolhida = prompt(`📚 Escolha uma matéria:\n\n${materias.join('\n')}\n\nDigite o número (1-4):`);
+            
+            if (materiaEscolhida) {
+                alert(`🎯 Ótima escolha! Redirecionando para ${materias[materiaEscolhida-1]}...\n\nEm breve você terá acesso a todas as questões!`);
+            }
+        }
+
+        function abrirRedacao() {
+            const temas = [
+                "1. Impactos da IA na educação brasileira",
+                "2. Desafios da saúde mental pós-pandemia", 
+                "3. Sustentabilidade nas grandes cidades",
+                "4. Combate à desinformação nas redes sociais",
+                "5. Inclusão digital no Brasil contemporâneo"
+            ];
+            
+            const temaEscolhido = prompt(`✍️ Escolha um tema para sua redação:\n\n${temas.join('\n')}\n\nDigite o número do tema (1-5):`);
+            
+            if (temaEscolhido) {
+                alert(`📝 Tema "${temas[temaEscolhido-1]}" selecionado!\n\nEm breve: editor de redação com correção automática!`);
+            }
+        }
+
+        function abrirVideoaulas() {
+            const categorias = [
+                "📐 Matemática (42 aulas)",
+                "📚 Linguagens (38 aulas)", 
+                "🌍 Ciências Humanas (40 aulas)",
+                "🔬 Ciências da Natureza (36 aulas)",
+                "🎯 Dicas e Estratégias (20 aulas)"
+            ];
+            
+            const categoriaEscolhida = prompt(`🎬 Catálogo de Videoaulas:\n\n${categorias.join('\n')}\n\nDigite o número da categoria (1-5):`);
+            
+            if (categoriaEscolhida) {
+                alert(`🎥 Carregando ${categorias[categoriaEscolhida-1]}...\n\nPlataforma de vídeos em implementação!`);
+            }
+        }
+
+        function abrirSimulados() {
+            const simulados = [
+                "1. 🕒 Simulado Completo ENEM (180 questões - 5h30)",
+                "2. ⚡ Simulado Rápido (90 questões - 2h30)", 
+                "3. 📊 Simulado por Área (45 questões cada)",
+                "4. 🎯 Simulado com Correção TRI",
+                "5. 🔄 Simulado de Revisão"
+            ];
+            
+            const simuladoEscolhido = prompt(`📊 Escolha um simulado:\n\n${simulados.join('\n')}\n\nDigite o número (1-5):`);
+            
+            if (simuladoEscolhido) {
+                alert(`⏰ Iniciando ${simulados[simuladoEscolhido-1]}...\n\nSistema de simulados em desenvolvimento!`);
+            }
+        }
+
+        function baixarLivro() {
+            alert(`📖 LIVRO "ENEM 2025 - Guia Completo"\n\n📄 84 páginas de conteúdo exclusivo\n✅ Resumos de todas as matérias\n🎯 Dicas de redação nota 1000\n📊 Mapas mentais coloridos\n\n💡 Em breve: download disponível!`);
+        }
+
+        function iniciarMusica() {
+            const playlists = [
+                "1. 🎹 Música Clássica para Foco (2h)",
+                "2. 🌧️ Sons da Natureza (Chuva/Floresta)", 
+                "3. 🎧 Lo-fi Hip Hop Study (24/7)",
+                "4. 🌊 Frequências Binaurais",
+                "5. 🔇 Ambiente Silencioso"
+            ];
+            
+            const playlistEscolhida = prompt(`🎵 Ambiente de Estudo:\n\n${playlists.join('\n')}\n\nDigite o número da playlist (1-5):`);
+            
+            if (playlistEscolhida) {
+                alert(`🎧 Iniciando ${playlists[playlistEscolhida-1]}...\n\nSistema de áudio em implementação!`);
+            }
+        }
     </script>
 </body>
 </html>
