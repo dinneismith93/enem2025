@@ -24,7 +24,8 @@ heroSignup.addEventListener('click', () => {
 });
 
 pricingBtn.addEventListener('click', () => {
-    signupModal.style.display = 'flex';
+    // ✅ DIRETO PARA PAGAMENTO SEM CADASTRO
+    window.location.href = 'https://mpago.la/2yXV9Nk';
 });
 
 // Close modals
@@ -91,10 +92,10 @@ document.getElementById('signupForm').addEventListener('submit', (e) => {
     alert(`Cadastro realizado com sucesso, ${name}! Redirecionando para pagamento...`);
     signupModal.style.display = 'none';
     
-    // ✅ REDIRECIONAMENTO PARA MERCADO PAGO
+    // ✅ REDIRECIONAMENTO DIRETO PARA MERCADO PAGO
     setTimeout(() => {
         window.location.href = 'https://mpago.la/2yXV9Nk';
-    }, 1500);
+    }, 1000);
 });
 
 // Music toggle
@@ -139,6 +140,12 @@ function inicializarUsuarios() {
     }
 }
 
+// Função de pagamento direto
+function processarPagamento() {
+    alert('Redirecionando para pagamento seguro...');
+    window.location.href = 'https://mpago.la/2yXV9Nk';
+}
+
 // Inicializar quando a página carregar
 document.addEventListener('DOMContentLoaded', function() {
     inicializarUsuarios();
@@ -149,4 +156,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (urlParams.get('logout') === 'true') {
         alert('Logout realizado com sucesso!');
     }
+    
+    // Adicionar evento de pagamento ao botão hero
+    document.getElementById('heroSignup').addEventListener('click', function() {
+        window.location.href = 'https://mpago.la/2yXV9Nk';
+    });
 });
