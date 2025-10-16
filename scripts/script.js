@@ -88,14 +88,13 @@ document.getElementById('signupForm').addEventListener('submit', (e) => {
         return;
     }
     
-    alert(`Cadastro realizado com sucesso, ${name}! Agora você pode fazer o pagamento de R$29,99 para liberar o acesso completo por 60 dias.`);
+    alert(`Cadastro realizado com sucesso, ${name}! Redirecionando para pagamento...`);
     signupModal.style.display = 'none';
     
-    // Simular redirecionamento para pagamento
+    // ✅ REDIRECIONAMENTO PARA MERCADO PAGO
     setTimeout(() => {
-        // Aqui você colocaria o link real do Mercado Pago
-        window.location.href = 'https://www.mercadopago.com.br';
-    }, 2000);
+        window.location.href = 'https://mpago.la/2yXV9Nk';
+    }, 1500);
 });
 
 // Music toggle
