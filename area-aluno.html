@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do Aluno - ENEM 2025</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        .dashboard {
+            padding: 2rem 0;
+            background-color: #f5f7fa;
+            min-height: 100vh;
+        }
+        
+        .welcome-banner {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .module-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .progress-bar {
+            background-color: #ecf0f1;
+            border-radius: 10px;
+            height: 10px;
+            margin: 1rem 0;
+        }
+        
+        .progress {
+            background-color: var(--success);
+            height: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">ENEM<span>2025</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Voltar ao Site</a></li>
+                        <li><a href="#modulos">Módulos</a></li>
+                        <li><a href="#simulados">Simulados</a></li>
+                        <li><a href="#redacao">Redação</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <span style="color: white; margin-right: 1rem;">Olá, Admin!</span>
+                    <button class="btn btn-login" id="logoutBtn">Sair</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="dashboard">
+        <div class="container">
+            <div class="welcome-banner">
+                <h1>Bem-vindo à Área do Aluno!</h1>
+                <p>Acesso vitalício - Admin</p>
+            </div>
+            
+            <div class="modules-grid">
+                <div class="module-card">
+                    <h3>📚 Questões ENEM 2023/2024</h3>
+                    <p>Mais de 1000 questões para praticar</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 25%"></div>
+                    </div>
+                    <button class="btn btn-signup">Acessar</button>
+                </div>
+                
+                <div class="module-card">
+                    <h3>✍️ Simulador de Redação</h3>
+                    <p>Pratique com correção automática</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 10%"></div>
+                    </div>
+                    <button class="btn btn-signup">Acessar</button>
+                </div>
+                
+                <div class="module-card">
+                    <h3>🎬 Videoaulas</h3>
+                    <p>Aulas com os melhores professores</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 15%"></div>
+                    </div>
+                    <button class="btn btn-signup">Acessar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Verificar se usuário está logado
+        const usuarioLogado = localStorage.getItem('usuarioLogado');
+        if (!usuarioLogado) {
+            window.location.href = 'index.html';
+        }
+        
+        // Logout
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            localStorage.removeItem('usuarioLogado');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
