@@ -59,7 +59,7 @@ window.addEventListener('click', (e) => {
     }
 });
 
-// Form submission
+// Form submission - ATUALIZADO COM REDIRECIONAMENTO
 document.getElementById('loginForm').addEventListener('submit', (e) => {
     e.preventDefault();
     const email = document.getElementById('loginEmail').value;
@@ -69,7 +69,7 @@ document.getElementById('loginForm').addEventListener('submit', (e) => {
     if (email === 'dinneismith93@gmail.com' && password === 'Aa@12011993') {
         alert('Login realizado com sucesso! Acesso vitalício concedido.');
         loginModal.style.display = 'none';
-        // Redirecionar para área do aluno
+        // ✅ REDIRECIONA PARA ÁREA DO ALUNO
         window.location.href = 'area-aluno.html';
     } else {
         alert('E-mail ou senha incorretos. Tente novamente.');
@@ -90,6 +90,12 @@ document.getElementById('signupForm').addEventListener('submit', (e) => {
     
     alert(`Cadastro realizado com sucesso, ${name}! Agora você pode fazer o pagamento de R$29,99 para liberar o acesso completo por 60 dias.`);
     signupModal.style.display = 'none';
+    
+    // Simular redirecionamento para pagamento
+    setTimeout(() => {
+        // Aqui você colocaria o link real do Mercado Pago
+        window.location.href = 'https://www.mercadopago.com.br';
+    }, 2000);
 });
 
 // Music toggle
@@ -99,11 +105,13 @@ let isPlaying = false;
 musicToggle.addEventListener('click', () => {
     isPlaying = !isPlaying;
     musicToggle.textContent = isPlaying ? '🔇' : '🎵';
-    // Em uma implementação real, você iniciaria/pararia o áudio aqui
+    // Em um site real, aqui você iniciaria/pararia o áudio
     if (isPlaying) {
         // audioPlayer.play();
+        console.log('Música iniciada');
     } else {
         // audioPlayer.pause();
+        console.log('Música pausada');
     }
 });
 
@@ -125,30 +133,21 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Sistema de usuários
-function salvarUsuario(nome, email, senha) {
-    const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
-    const dataExpiracao = new Date();
-    dataExpiracao.setDate(dataExpiracao.getDate() + 60); // 60 dias de acesso
-    
-    const novoUsuario = {
-        nome,
-        email,
-        senha,
-        dataCadastro: new Date(),
-        dataExpiracao: dataExpiracao,
-        pagamentoEfetuado: false
-    };
-    
-    usuarios.push(novoUsuario);
-    localStorage.setItem('usuarios', JSON.stringify(usuarios));
+// Sistema de usuários (simulação)
+function inicializarUsuarios() {
+    if (!localStorage.getItem('usuarios')) {
+        localStorage.setItem('usuarios', JSON.stringify([]));
+    }
 }
 
-// Verificar se usuário está logado ao carregar a página
-window.addEventListener('load', () => {
-    const usuarioLogado = localStorage.getItem('usuarioLogado');
-    if (usuarioLogado) {
-        // Usuário já está logado, pode redirecionar para área do aluno
-        console.log('Usuário logado:', usuarioLogado);
+// Inicializar quando a página carregar
+document.addEventListener('DOMContentLoaded', function() {
+    inicializarUsuarios();
+    console.log('Site ENEM 2025 carregado com sucesso!');
+    
+    // Verificar se veio da área do aluno (logout)
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('logout') === 'true') {
+        alert('Logout realizado com sucesso!');
     }
 });
