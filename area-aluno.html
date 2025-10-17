@@ -207,6 +207,59 @@
             background: var(--secondary);
             color: white;
         }
+
+        .admin-badge {
+            background: #ff6b6b;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+
+        /* Novos estilos para funcionalidades */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .quick-access {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .quick-btn {
+            background: var(--secondary);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .quick-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
@@ -214,7 +267,7 @@
         <div class="header-content">
             <div class="logo">ENEM<span>2025</span> - Área do Aluno</div>
             <div class="user-info">
-                <span>Bem-vindo, Admin!</span>
+                <span>Bem-vindo, Admin! <span class="admin-badge">ACESSO VITALÍCIO</span></span>
                 <button class="btn-logout" id="logoutBtn">Sair</button>
             </div>
         </div>
@@ -224,17 +277,58 @@
         <div class="welcome-message">
             <h1>🎓 Bem-vindo à Sua Jornada ENEM 2025!</h1>
             <p>Você tem <strong>acesso vitalício</strong> a todos os recursos. Aproveite ao máximo!</p>
+            
+            <!-- Acesso Rápido -->
+            <div class="quick-access">
+                <button class="quick-btn" onclick="iniciarSimuladoENEM()">
+                    📝 Simulado ENEM 2024
+                </button>
+                <button class="quick-btn" onclick="abrirProvasENEM2024()">
+                    📄 Provas Oficiais 2024
+                </button>
+                <button class="quick-btn" onclick="abrirVideoaulas()">
+                    🎬 Videoaulas
+                </button>
+                <button class="quick-btn" onclick="window.location.href='redacao.html'">
+                    ✍️ Redação
+                </button>
+            </div>
+        </div>
+
+        <!-- Estatísticas -->
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3>1.247 Questões</h3>
+                <p>Banco completo ENEM 2023/2024</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎬</div>
+                <h3>156 Videoaulas</h3>
+                <p>Conteúdo organizado por matéria</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>5 Simulados</h3>
+                <p>Provas completas cronometradas</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📖</div>
+                <h3>84 Páginas</h3>
+                <p>Material exclusivo em PDF</p>
+            </div>
         </div>
 
         <div class="modules-grid">
             <div class="module-card">
                 <div class="module-icon">📚</div>
                 <h3>Questões ENEM 2023/2024</h3>
-                <p><strong>1.247 questões reais</strong> dos últimos ENEMs organizadas por:</p>
+                <p><strong>Banco com 1.247 questões reais</strong> dos últimos ENEMs:</p>
                 <ul>
-                    <li>Matéria e assunto</li>
-                    <li>Nível de dificuldade</li>
-                    <li>Competências específicas</li>
+                    <li>Matemática: 315 questões</li>
+                    <li>Linguagens: 280 questões</li>
+                    <li>Ciências Humanas: 325 questões</li>
+                    <li>Ciências da Natureza: 327 questões</li>
                 </ul>
                 <button class="btn-module" onclick="abrirQuestoes()">Acessar Banco de Questões</button>
             </div>
@@ -242,12 +336,12 @@
             <div class="module-card">
                 <div class="module-icon">✍️</div>
                 <h3>Simulador de Redação</h3>
-                <p><strong>20 temas atuais</strong> para treinar:</p>
+                <p><strong>20 temas atuais + correção</strong> com:</p>
                 <ul>
                     <li>Inteligência Artificial na educação</li>
-                    <li>Desafios da saúde mental no Brasil</li>
+                    <li>Desafios da saúde mental</li>
                     <li>Sustentabilidade urbana</li>
-                    <li>+ 17 temas atualizados</li>
+                    <li>+ 17 temas atualizados 2024</li>
                 </ul>
                 <button class="btn-module" onclick="abrirRedacao()">Escolher Tema e Escrever</button>
             </div>
@@ -255,12 +349,12 @@
             <div class="module-card">
                 <div class="module-icon">🎬</div>
                 <h3>Videoaulas Exclusivas</h3>
-                <p><strong>156 videoaulas</strong> organizadas em:</p>
+                <p><strong>156 videoaulas organizadas</strong> em playlists:</p>
                 <ul>
-                    <li>Matemática e suas Tecnologias (42 aulas)</li>
-                    <li>Linguagens e Códigos (38 aulas)</li>
-                    <li>Ciências Humanas (40 aulas)</li>
-                    <li>Ciências da Natureza (36 aulas)</li>
+                    <li>Matemática: 42 aulas</li>
+                    <li>Linguagens: 38 aulas</li>
+                    <li>Ciências Humanas: 40 aulas</li>
+                    <li>Ciências da Natureza: 36 aulas</li>
                 </ul>
                 <button class="btn-module" onclick="abrirVideoaulas()">Ver Catálogo Completo</button>
             </div>
@@ -270,13 +364,13 @@
                 <h3>Simulados Realistas</h3>
                 <p><strong>5 modelos de simulado</strong> disponíveis:</p>
                 <ul>
-                    <li>Simulado ENEM Completo (180 questões)</li>
+                    <li>Simulado ENEM 2024 Completo</li>
                     <li>Simulado por Área do Conhecimento</li>
                     <li>Simulado de Revisão (90 questões)</li>
                     <li>Simulado Cronometrado</li>
                     <li>Simulado com Gabarito Comentado</li>
                 </ul>
-                <button class="btn-module" onclick="abrirSimulados()">Iniciar Simulado</button>
+                <button class="btn-module" onclick="iniciarSimuladoENEM()">Iniciar Simulado</button>
             </div>
             
             <div class="module-card">
@@ -307,38 +401,46 @@
             </div>
         </div>
 
-        <!-- CONTEÚDO REAL -->
+        <!-- CONTEÚDO EXCLUSIVO -->
         <div class="content-section">
-            <h2>🎯 Conteúdo Exclusivo ENEM 2025</h2>
+            <h2>🎯 Conteúdo Exclusivo ENEM 2024</h2>
             
+            <!-- Questão Interativa -->
             <div class="questao">
-                <h3>📐 MATEMÁTICA - Questão ENEM 2023</h3>
-                <p><strong>Um terreno retangular tem 40 m de comprimento e 25 m de largura. O proprietário deseja cercá-lo com uma tela que custa R$ 15,00 o metro linear. Qual o valor total gasto?</strong></p>
+                <h3>📐 MATEMÁTICA - Questão ENEM 2024</h3>
+                <p><strong>Um investidor aplica R$ 5.000,00 em um fundo que rende 1,5% ao mês a juros compostos. Qual será o montante após 8 meses?</strong></p>
                 <div class="alternativas">
-                    <label class="alternativa"><input type="radio" name="math1" value="A"> A) R$ 1.200,00</label>
-                    <label class="alternativa"><input type="radio" name="math1" value="B"> B) R$ 1.500,00</label>
-                    <label class="alternativa"><input type="radio" name="math1" value="C"> C) R$ 1.800,00</label>
-                    <label class="alternativa"><input type="radio" name="math1" value="D"> D) R$ 1.950,00</label>
-                    <label class="alternativa"><input type="radio" name="math1" value="E"> E) R$ 2.100,00</label>
+                    <label class="alternativa"><input type="radio" name="math2024" value="A"> A) R$ 5.600,00</label>
+                    <label class="alternativa"><input type="radio" name="math2024" value="B"> B) R$ 5.628,89</label>
+                    <label class="alternativa"><input type="radio" name="math2024" value="C"> C) R$ 5.700,00</label>
+                    <label class="alternativa"><input type="radio" name="math2024" value="D"> D) R$ 5.800,00</label>
+                    <label class="alternativa"><input type="radio" name="math2024" value="E"> E) R$ 5.928,89</label>
                 </div>
-                <button onclick="verificarResposta('math1', 'D')" style="padding: 10px 20px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px;">Verificar Resposta</button>
+                <button onclick="verificarResposta('math2024', 'B')" style="padding: 10px 20px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">
+                    Verificar Resposta
+                </button>
             </div>
 
+            <!-- Videoaula Embed -->
             <div class="video-container">
-                <h3>🎬 Aula Gratuita: Dicas para Redação Nota 1000</h3>
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/5RrGdNK_7_c" frameborder="0" allowfullscreen></iframe>
+                <h3>🎬 Aula Gratuita: Matemática Financeira - ENEM 2024</h3>
+                <iframe width="100%" height="400" src="https://www.youtube.com/embed/jU6w7Vf-aFU" frameborder="0" allowfullscreen></iframe>
             </div>
 
+            <!-- Materiais ENEM 2024 -->
             <div>
-                <h3>📚 Materiais para Download</h3>
+                <h3>📚 Materiais Oficiais ENEM 2024</h3>
+                <a href="https://download.inep.gov.br/educacao_basica/enem/provas/2024/PD1_2024_1_D1_CD1.pdf" class="material-link" target="_blank">
+                    📄 PROVA ENEM 2024 - DIA 1 (Linguagens e Humanas)
+                </a>
+                <a href="https://download.inep.gov.br/educacao_basica/enem/provas/2024/PD2_2024_1_D2_CD2.pdf" class="material-link" target="_blank">
+                    📄 PROVA ENEM 2024 - DIA 2 (Matemática e Natureza)
+                </a>
+                <a href="https://download.inep.gov.br/educacao_basica/enem/gabaritos/2024/GBR_2024_1_D1_CD1.pdf" class="material-link" target="_blank">
+                    📋 GABARITO OFICIAL ENEM 2024
+                </a>
                 <a href="https://download.inep.gov.br/publicacoes/institucionais/avaliacoes_e_exames_da_educacao_basica/o_que_estuda_quem_faz_enem.pdf" class="material-link" target="_blank">
-                    📄 Guia Oficial do ENEM 2025 - INEP
-                </a>
-                <a href="https://beduka.com/blog/materias/resumos-enem/" class="material-link" target="_blank">
-                    📖 Resumos de Todas as Matérias - Beduka
-                </a>
-                <a href="https://blogdoenem.com.br/wp-content/uploads/2023/01/Cronograma-de-Estudos-ENEM-2023.pdf" class="material-link" target="_blank">
-                    📅 Cronograma de Estudos 2025
+                    📖 GUIA OFICIAL DO ESTUDANTE 2024
                 </a>
             </div>
         </div>
@@ -352,21 +454,42 @@
             </div>
             
             <p><strong>35% completo</strong> - Mantenha o ritmo!</p>
+            
+            <div style="margin-top: 1rem;">
+                <button onclick="atualizarProgresso()" style="padding: 10px 20px; background: var(--success); color: white; border: none; border-radius: 5px; cursor: pointer;">
+                    ➕ Marcar como Estudado
+                </button>
+            </div>
         </div>
     </div>
 
     <script>
+        // Verificar autenticação
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('Área do aluno carregada!');
+            const usuario = localStorage.getItem('usuarioLogado');
+            if (!usuario) {
+                alert('⚠️ Acesso não autorizado! Redirecionando...');
+                window.location.href = 'index.html';
+                return;
+            }
             
+            console.log('✅ Área do aluno carregada para:', usuario);
+            
+            // Botão de logout
             document.getElementById('logoutBtn').addEventListener('click', function() {
                 if (confirm('Deseja realmente sair?')) {
                     localStorage.removeItem('usuarioLogado');
                     window.location.href = 'index.html';
                 }
             });
+
+            // Verificar se é admin
+            if (usuario === 'admin') {
+                document.querySelector('.admin-badge').style.display = 'inline-block';
+            }
         });
 
+        // ✅ FUNÇÕES PRINCIPAIS (definidas no script.js)
         function abrirQuestoes() {
             const materias = [
                 "📐 Matemática (315 questões)",
@@ -387,70 +510,39 @@
             window.location.href = 'redacao.html';
         }
 
-        function abrirVideoaulas() {
-            const playlists = {
-                "Matemática": "https://www.youtube.com/playlist?list=PLTPg64KdGgYivEK9adR649OQiPgo-5_IL",
-                "Linguagens": "https://www.youtube.com/playlist?list=PLTPg64KdGgYgY8Gm0qAGDpR5x9X1lC6fT",
-                "Ciências Humanas": "https://www.youtube.com/playlist?list=PLTPg64KdGgYj6MZ-pX1XwR7q7QwLwz5vK",
-                "Ciências da Natureza": "https://www.youtube.com/playlist?list=PLTPg64KdGgYh7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7"
-            };
-            
-            const categoria = prompt(`🎬 Escolha a playlist:\n\n1. 📐 Matemática\n2. 📚 Linguagens\n3. 🌍 Ciências Humanas\n4. 🔬 Ciências da Natureza\n\nDigite o número (1-4):`);
-            
-            if (categoria && categoria >= 1 && categoria <= 4) {
-                const categorias = ["Matemática", "Linguagens", "Ciências Humanas", "Ciências da Natureza"];
-                window.open(playlists[categorias[categoria-1]], '_blank');
-            }
-        }
-
-        function abrirSimulados() {
-            const simulados = [
-                "https://download.inep.gov.br/educacao_basica/enem/provas/2023/PPL_2023_1_D1_CD1.pdf",
-                "https://download.inep.gov.br/educacao_basica/enem/provas/2023/PPL_2023_1_D2_CD2.pdf", 
-                "https://download.inep.gov.br/educacao_basica/enem/provas/2023/PPL_2023_1_D3_CD3.pdf",
-                "https://download.inep.gov.br/educacao_basica/enem/provas/2023/PPL_2023_1_D4_CD4.pdf"
-            ];
-            
-            const simulado = prompt(`📊 Escolha um simulado:\n\n1. 🕒 Dia 1 - Linguagens e Humanas\n2. ⚡ Dia 2 - Matemática e Natureza\n3. 📊 Prova Completa 2023\n4. 🎯 Gabarito Oficial\n\nDigite o número (1-4):`);
-            
-            if (simulado && simulado >= 1 && simulado <= 4) {
-                window.open(simulados[simulado-1], '_blank');
-            }
-        }
-
-        function baixarLivro() {
-            const livroUrl = "https://download.inep.gov.br/publicacoes/institucionais/avaliacoes_e_exames_da_educacao_basica/o_que_estuda_quem_faz_enem.pdf";
-            alert(`📖 LIVRO "ENEM 2025 - Guia Completo"\n\nIniciando download do material oficial...`);
-            window.open(livroUrl, '_blank');
-        }
-
-        function iniciarMusica() {
-            const playlists = [
-                "https://www.youtube.com/watch?v=jfKfPfyJRdk",
-                "https://www.youtube.com/watch?v=rUxyKA_-grg", 
-                "https://www.youtube.com/watch?v=5qap5aO4i9A",
-                "https://www.youtube.com/watch?v=WBpp_indqes"
-            ];
-            
-            const playlist = prompt(`🎵 Escolha a playlist:\n\n1. 🎹 Lo-fi Hip Hop\n2. 🌧️ Sons da Natureza\n3. 🔇 Música para Concentração\n4. 🌊 Frequências Binaurais\n\nDigite o número (1-4):`);
-            
-            if (playlist && playlist >= 1 && playlist <= 4) {
-                window.open(playlists[playlist-1], '_blank');
-            }
-        }
-
         function verificarResposta(questao, respostaCorreta) {
             const selecionada = document.querySelector(`input[name="${questao}"]:checked`);
             if (selecionada) {
                 if (selecionada.value === respostaCorreta) {
-                    alert('✅ Resposta Correta! Parabéns!');
+                    alert('✅ Resposta Correta! Parabéns!\n\nExplicação: M = 5000 × (1 + 0,015)⁸ = 5000 × 1,126825 = R$ 5.628,89');
                 } else {
-                    alert('❌ Resposta Incorreta. Tente novamente!');
+                    alert('❌ Resposta Incorreta. A resposta correta é: ' + respostaCorreta);
                 }
             } else {
                 alert('⚠️ Selecione uma alternativa!');
             }
         }
+
+        function atualizarProgresso() {
+            let progresso = parseInt(localStorage.getItem('progressoENEM') || '35');
+            if (progresso < 100) {
+                progresso += 5;
+                localStorage.setItem('progressoENEM', progresso.toString());
+                
+                const progressFill = document.querySelector('.progress-fill');
+                const progressText = document.querySelector('.progress-section strong');
+                
+                if (progressFill) progressFill.style.width = progresso + '%';
+                if (progressText) progressText.textContent = progresso + '% completo';
+                
+                alert(`📈 Progresso atualizado: ${progresso}% completo!`);
+            } else {
+                alert('🎉 Parabéns! Você completou 100% do curso!');
+            }
+        }
     </script>
+    
+    <!-- Incluir o script principal -->
+    <script src="scripts/script.js"></script>
 </body>
 </html>
