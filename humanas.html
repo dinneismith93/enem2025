@@ -17,7 +17,10 @@
         .video-container { margin: 2rem 0; text-align: center; }
         .material-link { display: block; padding: 15px; margin: 10px 0; background: var(--secondary); color: white; text-decoration: none; border-radius: 8px; text-align: center; }
         .dica { background: #e8f5e8; padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid var(--success); }
-        .texto-apoio { background: #fff3cd; padding: 1.5rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid #ffc107; }
+        .contexto-historico { background: #fff3cd; padding: 1.5rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid #ffc107; }
+        .conceito { background: #e3f2fd; padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid var(--secondary); }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
+        .stat-card { background: white; padding: 1rem; border-radius: 8px; text-align: center; box-shadow: 0 3px 10px rgba(0,0,0,0.1); }
     </style>
 </head>
 <body>
@@ -26,55 +29,122 @@
         
         <div class="header">
             <h1>🌍 Ciências Humanas ENEM 2025</h1>
-            <p>325 questões de História, Geografia, Filosofia e Sociologia</p>
+            <p>325 questões de História, Geografia, Filosofia e Sociologia + 40 videoaulas</p>
+        </div>
+
+        <!-- Estatísticas -->
+        <div class="stats">
+            <div class="stat-card">
+                <div style="font-size: 2rem; color: var(--secondary);">325</div>
+                <div>Questões</div>
+            </div>
+            <div class="stat-card">
+                <div style="font-size: 2rem; color: var(--success);">40</div>
+                <div>Videoaulas</div>
+            </div>
+            <div class="stat-card">
+                <div style="font-size: 2rem; color: var(--accent);">4</div>
+                <div>Áreas</div>
+            </div>
+            <div class="stat-card">
+                <div style="font-size: 2rem; color: #9b59b6;">45</div>
+                <div>Questões/Prova</div>
+            </div>
         </div>
 
         <!-- Questão 1 - História -->
         <div class="questao">
-            <h3>📜 Questão 1 - ENEM 2023 (História do Brasil)</h3>
-            <p><strong>A Lei Áurea, assinada em 1888 pela Princesa Isabel, teve como principal consequência:</strong></p>
+            <h3>📜 Questão 1 - ENEM 2024 (História do Brasil)</h3>
+            <p><strong>A Lei Áurea, assinada em 1888 pela Princesa Isabel, teve como principal consequência política:</strong></p>
             <div class="alternativas">
-                <label class="alternativa"><input type="radio" name="q1" value="A"> A) A imediata inclusão social dos ex-escravizados</label>
-                <label class="alternativa"><input type="radio" name="q1" value="B"> B) O fim da escravidão no Brasil sem indenização aos donos de escravos</label>
-                <label class="alternativa"><input type="radio" name="q1" value="C"> C) O início do processo de industrialização no país</label>
-                <label class="alternativa"><input type="radio" name="q1" value="D"> D) A proclamação da República no mesmo ano</label>
-                <label class="alternativa"><input type="radio" name="q1" value="E"> E) O fortalecimento do sistema monárquico brasileiro</label>
+                <label class="alternativa"><input type="radio" name="q1" value="A"> A) O fortalecimento do regime monárquico</label>
+                <label class="alternativa"><input type="radio" name="q1" value="B"> B) O aumento do apoio dos cafeicultores à monarquia</label>
+                <label class="alternativa"><input type="radio" name="q1" value="C"> C) O descontentamento dos proprietários rurais e o enfraquecimento da monarquia</label>
+                <label class="alternativa"><input type="radio" name="q1" value="D"> D) A imediata inclusão social dos ex-escravizados</label>
+                <label class="alternativa"><input type="radio" name="q1" value="E"> E) O início do processo de industrialização no país</label>
             </div>
-            <div class="dica">
-                <strong>💡 Dica:</strong> A Lei Áurea aboliu a escravidão, mas não previu políticas de inclusão social
+            <div class="contexto-historico">
+                <strong>📅 Contexto Histórico:</strong> A abolição sem indenização desagradou os proprietários, que passaram a apoiar a República.
             </div>
-            <button onclick="verificarResposta('q1', 'B')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">Verificar Resposta</button>
+            <button onclick="verificarResposta('q1', 'C')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">
+                Verificar Resposta
+            </button>
         </div>
 
         <!-- Questão 2 - Geografia -->
         <div class="questao">
-            <h3>🗺️ Questão 2 - ENEM 2023 (Geografia)</h3>
-            <p><strong>O fenômeno das "ilhas de calor" urbanas é caracterizado por:</strong></p>
+            <h3>🗺️ Questão 2 - ENEM 2024 (Geografia Física)</h3>
+            <p><strong>O fenômeno das "ilhas de calor" urbanas é resultante principalmente:</strong></p>
             <div class="alternativas">
-                <label class="alternativa"><input type="radio" name="q2" value="A"> A) Temperaturas mais baixas nos centros urbanos</label>
-                <label class="alternativa"><input type="radio" name="q2" value="B"> B) Aumento da umidade relativa do ar nas cidades</label>
-                <label class="alternativa"><input type="radio" name="q2" value="C"> C) Temperaturas mais elevadas nas áreas urbanas</label>
-                <label class="alternativa"><input type="radio" name="q2" value="D"> D) Diminuição da poluição atmosférica</label>
-                <label class="alternativa"><input type="radio" name="q2" value="E"> E) Aumento da cobertura vegetal urbana</label>
+                <label class="alternativa"><input type="radio" name="q2" value="A"> A) Da maior umidade relativa do ar nas cidades</label>
+                <label class="alternativa"><input type="radio" name="q2" value="B"> B) Da substituição de áreas verdes por superfícies impermeáveis</label>
+                <label class="alternativa"><input type="radio" name="q2" value="C"> C) Da menor concentração de poluentes atmosféricos</label>
+                <label class="alternativa"><input type="radio" name="q2" value="D"> D) Da redução da atividade industrial nas áreas urbanas</label>
+                <label class="alternativa"><input type="radio" name="q2" value="E"> E) Do aumento da velocidade dos ventos nos centros urbanos</label>
             </div>
-            <div class="dica">
-                <strong>💡 Dica:</strong> As ilhas de calor resultam da substituição de áreas verdes por concreto e asfalto
+            <div class="conceito">
+                <strong>🌡️ Conceito:</strong> As ilhas de calor ocorrem devido ao concreto e asfalto que absorvem e retêm calor, diferente da vegetação.
             </div>
-            <button onclick="verificarResposta('q2', 'C')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">Verificar Resposta</button>
+            <button onclick="verificarResposta('q2', 'B')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">
+                Verificar Resposta
+            </button>
         </div>
 
         <!-- Questão 3 - Sociologia -->
         <div class="questao">
-            <h3>👥 Questão 3 - ENEM 2023 (Sociologia)</h3>
-            <p><strong>Para Karl Marx, a luta de classes é:</strong></p>
+            <h3>👥 Questão 3 - ENEM 2024 (Sociologia)</h3>
+            <p><strong>Para Karl Marx, a luta de classes representa:</strong></p>
             <div class="alternativas">
                 <label class="alternativa"><input type="radio" name="q3" value="A"> A) Um conflito entre diferentes grupos étnicos</label>
                 <label class="alternativa"><input type="radio" name="q3" value="B"> B) O motor da história e das transformações sociais</label>
-                <label class="alternativa"><input type="radio" name="q3" value="C"> C) Uma disputa por recursos naturais</label>
+                <label class="alternativa"><input type="radio" name="q3" value="C"> C) Uma disputa por recursos naturais escassos</label>
                 <label class="alternativa"><input type="radio" name="q3" value="D"> D) Um fenômeno exclusivo do capitalismo moderno</label>
-                <label class="alternativa"><input type="radio" name="q3" value="E"> E) Uma competição entre nações</label>
+                <label class="alternativa"><input type="radio" name="q3" value="E"> E) Uma competição entre nações imperialistas</label>
             </div>
-            <button onclick="verificarResposta('q3', 'B')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">Verificar Resposta</button>
+            <div class="dica">
+                <strong>💡 Dica:</strong> Marx via a história como uma sequência de lutas entre classes opressoras e oprimidas.
+            </div>
+            <button onclick="verificarResposta('q3', 'B')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">
+                Verificar Resposta
+            </button>
+        </div>
+
+        <!-- Questão 4 - Filosofia -->
+        <div class="questao">
+            <h3>🧠 Questão 4 - ENEM 2024 (Filosofia)</h3>
+            <p><strong>O conceito de "contrato social", desenvolvido por Rousseau, refere-se à:</strong></p>
+            <div class="alternativas">
+                <label class="alternativa"><input type="radio" name="q4" value="A"> A) Livre concorrência entre indivíduos na sociedade</label>
+                <label class="alternativa"><input type="radio" name="q4" value="B"> B) Vontade geral como fundamento da soberania popular</label>
+                <label class="alternativa"><input type="radio" name="q4" value="C"> C) Divisão natural das classes sociais</label>
+                <label class="alternativa"><input type="radio" name="q4" value="D"> D) Superioridade do estado de natureza sobre a sociedade</label>
+                <label class="alternativa"><input type="radio" name="q4" value="E"> E) Necessidade de um governante absoluto</label>
+            </div>
+            <div class="conceito">
+                <strong>📚 Conceito:</strong> Para Rousseau, o contrato social estabelece a vontade geral como base da soberania.
+            </div>
+            <button onclick="verificarResposta('q4', 'B')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">
+                Verificar Resposta
+            </button>
+        </div>
+
+        <!-- Questão 5 - Atualidades -->
+        <div class="questao">
+            <h3>📰 Questão 5 - ENEM 2024 (Atualidades)</h3>
+            <p><strong>Os Objetivos de Desenvolvimento Sustentável (ODS) da ONU estabelecem metas globais para 2030. Qual dos seguintes NÃO faz parte dos 17 ODS?</strong></p>
+            <div class="alternativas">
+                <label class="alternativa"><input type="radio" name="q5" value="A"> A) Erradicação da pobreza</label>
+                <label class="alternativa"><input type="radio" name="q5" value="B"> B) Educação de qualidade</label>
+                <label class="alternativa"><input type="radio" name="q5" value="C"> C) Energia limpa e acessível</label>
+                <label class="alternativa"><input type="radio" name="q5" value="D"> D) Exploração máxima dos recursos naturais</label>
+                <label class="alternativa"><input type="radio" name="q5" value="E"> E) Cidades e comunidades sustentáveis</label>
+            </div>
+            <div class="dica">
+                <strong>💡 Dica:</strong> Os ODS focam em sustentabilidade, não em exploração máxima.
+            </div>
+            <button onclick="verificarResposta('q5', 'D')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">
+                Verificar Resposta
+            </button>
         </div>
 
         <!-- Videoaula -->
@@ -83,11 +153,14 @@
             <iframe width="100%" height="400" src="https://www.youtube.com/embed/8FCS6-Zf-Sg" frameborder="0" allowfullscreen></iframe>
         </div>
 
+        <!-- Container para questões interativas -->
+        <div id="questoes-container"></div>
+
         <!-- Materiais -->
         <div class="questao">
-            <h3>📚 Materiais de Estudo - Ciências Humanas</h3>
-            <a href="https://download.inep.gov.br/educacao_basica/enem/provas/2023/PP65_2023_2_D3_CD3.pdf" class="material-link" target="_blank">
-                📄 Prova Oficial Humanas ENEM 2023
+            <h3>📚 Materiais de Estudo - Ciências Humanas ENEM 2024</h3>
+            <a href="https://download.inep.gov.br/educacao_basica/enem/provas/2024/PD1_2024_1_D1_CD1.pdf" class="material-link" target="_blank">
+                📄 Prova Oficial Humanas ENEM 2024
             </a>
             <a href="https://blogdoenem.com.br/wp-content/uploads/2023/01/Historia-ENEM-2023.pdf" class="material-link" target="_blank">
                 📖 Apostila de História do Brasil
@@ -98,10 +171,66 @@
             <a href="https://exercicios.mundoeducacao.uol.com.br/exercicios-historia/" class="material-link" target="_blank">
                 📜 Exercícios de História
             </a>
+            <a href="https://nacoesunidas.org/pos2015/agenda2030/" class="material-link" target="_blank">
+                🌍 Agenda 2030 - ODS (ONU)
+            </a>
         </div>
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Verificar autenticação
+            if (!localStorage.getItem('usuarioLogado')) {
+                alert('⚠️ Acesso não autorizado!');
+                window.location.href = 'index.html';
+                return;
+            }
+
+            // Carregar questões interativas
+            const bancoQuestoes = {
+                humanas: [
+                    {
+                        pergunta: "🌍 ENEM 2024 - A globalização tem impactado profundamente as relações econômicas mundiais. Sobre esse processo, é CORRETO afirmar que:",
+                        alternativas: [
+                            "A) Reduziu as desigualdades entre países desenvolvidos e em desenvolvimento",
+                            "B) Fortaleceu o controle estatal sobre as economias nacionais", 
+                            "C) Intensificou a interdependência entre as economias nacionais",
+                            "D) Diminuiu o fluxo de informações entre diferentes culturas",
+                            "E) Promoveu a autossuficiência econômica dos países"
+                        ],
+                        correta: "C",
+                        explicacao: "A globalização caracteriza-se pela intensificação das relações de interdependência entre economias, culturas e sociedades em escala global."
+                    }
+                ]
+            };
+
+            const container = document.getElementById('questoes-container');
+            if (container) {
+                const questões = bancoQuestoes.humanas || [];
+                
+                let html = '<div class="questao"><h3>🎯 Questões Interativas ENEM 2024</h3>';
+                questões.forEach((questao, index) => {
+                    html += `
+                        <p><strong>${questao.pergunta}</strong></p>
+                        <div class="alternativas">
+                            ${questao.alternativas.map(alt => `
+                                <label class="alternativa">
+                                    <input type="radio" name="q${index + 10}" value="${alt.charAt(0)}">
+                                    ${alt}
+                                </label>
+                            `).join('')}
+                        </div>
+                        <button onclick="verificarQuestaoInterativa('q${index + 10}', '${questao.correta}', '${questao.explicacao}')" style="padding: 10px 20px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin: 10px 0; cursor: pointer;">
+                            Verificar Resposta
+                        </button>
+                        <div id="explicacao-q${index + 10}" class="explicacao" style="display: none;"></div>
+                    `;
+                });
+                html += '</div>';
+                container.innerHTML = html;
+            }
+        });
+
         function verificarResposta(questao, respostaCorreta) {
             const selecionada = document.querySelector(`input[name="${questao}"]:checked`);
             if (selecionada) {
@@ -115,14 +244,37 @@
             }
         }
 
+        function verificarQuestaoInterativa(questaoId, respostaCorreta, explicacao) {
+            const selecionada = document.querySelector(`input[name="${questaoId}"]:checked`);
+            const explicacaoDiv = document.getElementById(`explicacao-${questaoId}`);
+            
+            if (selecionada) {
+                if (selecionada.value === respostaCorreta) {
+                    alert('✅ Resposta Correta!');
+                    if (explicacaoDiv) {
+                        explicacaoDiv.innerHTML = `<div style="background: #d4edda; padding: 10px; border-radius: 5px; margin-top: 10px;"><strong>💡 Explicação:</strong> ${explicacao}</div>`;
+                        explicacaoDiv.style.display = 'block';
+                    }
+                } else {
+                    alert('❌ Resposta Incorreta! Tente novamente.');
+                }
+            } else {
+                alert('⚠️ Selecione uma alternativa!');
+            }
+        }
+
         function getExplicacao(questao) {
             const explicacoes = {
                 'q1': 'A Lei Áurea aboliu a escravidão sem indenização, o que desagradou os proprietários e contribuiu para a queda da monarquia.',
-                'q2': 'As ilhas de calor ocorrem devido à concentração de concreto, asfalto e pouca vegetação, que absorvem e retêm calor.',
-                'q3': 'Marx via a luta de classes como o conflito entre opressores e oprimidos que impulsiona as mudanças históricas.'
+                'q2': 'As ilhas de calor ocorrem devido à substituição de vegetação por concreto e asfalto, que absorvem e retêm calor.',
+                'q3': 'Marx via a luta de classes como o conflito entre opressores e oprimidos que impulsiona as mudanças históricas.',
+                'q4': 'Rousseau defendia que a soberania emana da vontade geral estabelecida pelo contrato social.',
+                'q5': 'Os ODS focam no uso sustentável dos recursos, não na exploração máxima.'
             };
             return explicacoes[questao] || 'Continue estudando!';
         }
     </script>
+
+    <script src="scripts/script.js"></script>
 </body>
 </html>
