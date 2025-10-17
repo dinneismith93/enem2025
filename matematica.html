@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matemática - ENEM 2025</title>
+    <style>
+        /* Mesmos estilos da área do aluno */
+        :root { --primary: #2c3e50; --secondary: #3498db; --accent: #e74c3c; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI'; }
+        body { background-color: #f5f7fa; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header { background: var(--primary); color: white; padding: 1rem; border-radius: 10px; margin-bottom: 2rem; }
+        .btn-voltar { background: var(--accent); color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        .questao { background: white; padding: 2rem; margin: 1rem 0; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .alternativa { display: block; padding: 15px; margin: 10px 0; background: #f8f9fa; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; }
+        .alternativa:hover { background: #e3f2fd; border-color: var(--secondary); }
+        .video-container { margin: 2rem 0; text-align: center; }
+        .material-link { display: block; padding: 15px; margin: 10px 0; background: var(--secondary); color: white; text-decoration: none; border-radius: 8px; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="btn-voltar" onclick="window.history.back()">← Voltar</button>
+            <h1>📐 Matemática ENEM 2025</h1>
+            <p>315 questões resolvidas e explicadas</p>
+        </div>
+
+        <!-- Questão 1 -->
+        <div class="questao">
+            <h3>📊 Questão 1 - ENEM 2023</h3>
+            <p><strong>Um investidor aplica R$ 10.000,00 em um fundo que rende 1% ao mês. Qual será o montante após 12 meses?</strong></p>
+            <div class="alternativas">
+                <label class="alternativa"><input type="radio" name="q1" value="A"> A) R$ 11.000,00</label>
+                <label class="alternativa"><input type="radio" name="q1" value="B"> B) R$ 11.268,25</label>
+                <label class="alternativa"><input type="radio" name="q1" value="C"> C) R$ 11.500,00</label>
+                <label class="alternativa"><input type="radio" name="q1" value="D"> D) R$ 12.000,00</label>
+                <label class="alternativa"><input type="radio" name="q1" value="E"> E) R$ 12.682,50</label>
+            </div>
+            <button onclick="verificarResposta('q1', 'B')" style="padding: 10px 20px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px;">Verificar Resposta</button>
+        </div>
+
+        <!-- Questão 2 -->
+        <div class="questao">
+            <h3>📈 Questão 2 - ENEM 2023</h3>
+            <p><strong>Uma progressão aritmética tem primeiro termo igual a 3 e razão igual a 5. Qual é o 10º termo?</strong></p>
+            <div class="alternativas">
+                <label class="alternativa"><input type="radio" name="q2" value="A"> A) 48</label>
+                <label class="alternativa"><input type="radio" name="q2" value="B"> B) 50</label>
+                <label class="alternativa"><input type="radio" name="q2" value="C"> C) 53</label>
+                <label class="alternativa"><input type="radio" name="q2" value="D"> D) 55</label>
+                <label class="alternativa"><input type="radio" name="q2" value="E"> E) 58</label>
+            </div>
+            <button onclick="verificarResposta('q2', 'A')" style="padding: 10px 20px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px;">Verificar Resposta</button>
+        </div>
+
+        <!-- Videoaula -->
+        <div class="video-container">
+            <h3>🎬 Aula: Matemática Básica para ENEM</h3>
+            <iframe width="100%" height="400" src="https://www.youtube.com/embed/ds4_IA0Gm1Q" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <!-- Materiais -->
+        <div class="questao">
+            <h3>📚 Materiais de Estudo</h3>
+            <a href="https://download.inep.gov.br/educacao_basica/enem/provas/2023/PP63_2023_2_D1_CD1.pdf" class="material-link" target="_blank">
+                📄 Prova Oficial Matemática ENEM 2023
+            </a>
+            <a href="https://blogdoenem.com.br/wp-content/uploads/2023/01/Matematica-ENEM-2023.pdf" class="material-link" target="_blank">
+                📖 Apostila Completa de Matemática
+            </a>
+            <a href="https://www.youtube.com/playlist?list=PLTPg64KdGgYivEK9adR649OQiPgo-5_IL" class="material-link" target="_blank">
+                🎬 Playlist Completa de Videoaulas
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function verificarResposta(questao, respostaCorreta) {
+            const selecionada = document.querySelector(`input[name="${questao}"]:checked`);
+            if (selecionada) {
+                if (selecionada.value === respostaCorreta) {
+                    alert('✅ Resposta Correta! Parabéns!');
+                } else {
+                    alert('❌ Resposta Incorreta. Continue estudando!');
+                }
+            } else {
+                alert('⚠️ Selecione uma alternativa!');
+            }
+        }
+    </script>
+</body>
+</html>
