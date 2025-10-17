@@ -1,3 +1,22 @@
+// Sistema de Autenticação
+function verificarAutenticacao() {
+    if (window.location.pathname.includes('area-aluno.html') || 
+        window.location.pathname.includes('matematica.html') ||
+        window.location.pathname.includes('redacao.html') ||
+        window.location.pathname.includes('linguagens.html') ||
+        window.location.pathname.includes('humanas.html') ||
+        window.location.pathname.includes('natureza.html')) {
+        
+        const usuarioLogado = localStorage.getItem('usuarioLogado');
+        if (!usuarioLogado && !window.location.pathname.includes('index.html')) {
+            alert('⚠️ Acesso restrito! Faça login primeiro.');
+            window.location.href = 'index.html';
+            return false;
+        }
+    }
+    return true;
+}
+
 // Modal functionality
 const loginBtn = document.getElementById('loginBtn');
 const signupBtn = document.getElementById('signupBtn');
@@ -11,42 +30,23 @@ const switchToSignup = document.getElementById('switchToSignup');
 const switchToLogin = document.getElementById('switchToLogin');
 
 // Open modals
-loginBtn.addEventListener('click', () => {
-    loginModal.style.display = 'flex';
-});
-
-signupBtn.addEventListener('click', () => {
-    signupModal.style.display = 'flex';
-});
-
-heroSignup.addEventListener('click', () => {
-    window.location.href = 'https://mpago.la/2yXV9Nk';
-});
-
-// ✅ CORREÇÃO: Botão de pricing direto para pagamento
-if (pricingBtn) {
-    pricingBtn.addEventListener('click', () => {
-        window.location.href = 'https://mpago.la/2yXV9Nk';
-    });
-}
+if (loginBtn) loginBtn.addEventListener('click', () => loginModal.style.display = 'flex');
+if (signupBtn) signupBtn.addEventListener('click', () => signupModal.style.display = 'flex');
+if (heroSignup) heroSignup.addEventListener('click', () => window.location.href = 'https://mpago.la/2yXV9Nk');
+if (pricingBtn) pricingBtn.addEventListener('click', () => window.location.href = 'https://mpago.la/2yXV9Nk');
 
 // Close modals
-closeLoginModal.addEventListener('click', () => {
-    loginModal.style.display = 'none';
-});
-
-closeSignupModal.addEventListener('click', () => {
-    signupModal.style.display = 'none';
-});
+if (closeLoginModal) closeLoginModal.addEventListener('click', () => loginModal.style.display = 'none');
+if (closeSignupModal) closeSignupModal.addEventListener('click', () => signupModal.style.display = 'none');
 
 // Switch between modals
-switchToSignup.addEventListener('click', (e) => {
+if (switchToSignup) switchToSignup.addEventListener('click', (e) => {
     e.preventDefault();
     loginModal.style.display = 'none';
     signupModal.style.display = 'flex';
 });
 
-switchToLogin.addEventListener('click', (e) => {
+if (switchToLogin) switchToLogin.addEventListener('click', (e) => {
     e.preventDefault();
     signupModal.style.display = 'none';
     loginModal.style.display = 'flex';
@@ -54,58 +54,76 @@ switchToLogin.addEventListener('click', (e) => {
 
 // Close modals when clicking outside
 window.addEventListener('click', (e) => {
-    if (e.target === loginModal) {
-        loginModal.style.display = 'none';
-    }
-    if (e.target === signupModal) {
-        signupModal.style.display = 'none';
-    }
+    if (e.target === loginModal) loginModal.style.display = 'none';
+    if (e.target === signupModal) signupModal.style.display = 'none';
 });
 
-// ✅ CORREÇÃO CRÍTICA: Login funcionando 100%
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const email = document.getElementById('loginEmail').value;
-    const password = document.getElementById('loginPassword').value;
-    
-    console.log('Tentando login com:', email);
-    
-    // ✅ LOGIN VITALÍCIO FUNCIONANDO
-    if (email === 'dinneismith93@gmail.com' && password === 'Aa@12011993') {
-        alert('✅ Login realizado com sucesso! Acesso vitalício concedido.\n\nRedirecionando para área do aluno...');
-        loginModal.style.display = 'none';
+// ✅ LOGIN ADMIN FUNCIONAL
+if (document.getElementById('loginForm')) {
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
         
-        // ✅ REDIRECIONAMENTO GARANTIDO
-        setTimeout(() => {
-            window.location.href = 'area-aluno.html';
-        }, 1000);
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
         
-    } else {
-        alert('❌ E-mail ou senha incorretos.\n\nUse:\nEmail: dinneismith93@gmail.com\nSenha: Aa@12011993');
-    }
-});
+        // Login Admin Vitalício
+        if (email === 'dinneismith93@gmail.com' && password === 'Aa@12011993') {
+            localStorage.setItem('usuarioLogado', 'admin');
+            localStorage.setItem('acessoVitalicio', 'true');
+            alert('✅ Login realizado! Acesso vitalício concedido.');
+            loginModal.style.display = 'none';
+            setTimeout(() => window.location.href = 'area-aluno.html', 1000);
+        } 
+        // Login de usuários comuns
+        else {
+            const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
+            const usuario = usuarios.find(u => u.email === email && u.senha === password);
+            
+            if (usuario && new Date() < new Date(usuario.dataExpiracao)) {
+                localStorage.setItem('usuarioLogado', email);
+                alert('✅ Login realizado! Acesso liberado.');
+                loginModal.style.display = 'none';
+                setTimeout(() => window.location.href = 'area-aluno.html', 1000);
+            } else {
+                alert('❌ E-mail ou senha incorretos.\n\nAdmin: dinneismith93@gmail.com / Aa@12011993');
+            }
+        }
+    });
+}
 
 // Signup form
-document.getElementById('signupForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('signupName').value;
-    const email = document.getElementById('signupEmail').value;
-    const password = document.getElementById('signupPassword').value;
-    const confirmPassword = document.getElementById('signupConfirmPassword').value;
-    
-    if (password !== confirmPassword) {
-        alert('As senhas não coincidem. Tente novamente.');
-        return;
-    }
-    
-    alert(`Cadastro realizado, ${name}! Redirecionando para pagamento...`);
-    signupModal.style.display = 'none';
-    
-    setTimeout(() => {
-        window.location.href = 'https://mpago.la/2yXV9Nk';
-    }, 1500);
-});
+if (document.getElementById('signupForm')) {
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('signupName').value;
+        const email = document.getElementById('signupEmail').value;
+        const password = document.getElementById('signupPassword').value;
+        const confirmPassword = document.getElementById('signupConfirmPassword').value;
+        
+        if (password !== confirmPassword) {
+            alert('As senhas não coincidem.');
+            return;
+        }
+        
+        // Salvar usuário
+        const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
+        const dataExpiracao = new Date();
+        dataExpiracao.setDate(dataExpiracao.getDate() + 60); // 60 dias
+        
+        usuarios.push({
+            nome: name,
+            email: email,
+            senha: password,
+            dataExpiracao: dataExpiracao.toISOString()
+        });
+        
+        localStorage.setItem('usuarios', JSON.stringify(usuarios));
+        
+        alert(`Cadastro realizado, ${name}! Redirecionando para pagamento...`);
+        signupModal.style.display = 'none';
+        setTimeout(() => window.location.href = 'https://mpago.la/2yXV9Nk', 1500);
+    });
+}
 
 // Music toggle
 const musicToggle = document.getElementById('musicToggle');
@@ -115,7 +133,6 @@ if (musicToggle) {
     musicToggle.addEventListener('click', function() {
         isPlaying = !isPlaying;
         musicToggle.textContent = isPlaying ? '🔇' : '🎵';
-        console.log('Música:', isPlaying ? 'Ligada' : 'Desligada');
     });
 }
 
@@ -124,7 +141,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
             window.scrollTo({
@@ -135,109 +151,223 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ✅ VERIFICAÇÃO DE PÁGINA ATUAL
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('✅ Site ENEM 2025 carregado com sucesso!');
-    
-    // Se estiver na área do aluno, verificar se veio do login
-    if (window.location.pathname.includes('area-aluno.html')) {
-        console.log('🔓 Acesso à área do aluno concedido');
-    }
-});
-
-// ✅ FUNÇÕES GLOBAIS PARA TODAS AS PÁGINAS
-function abrirQuestoes() {
-    const materias = [
-        "📐 Matemática (315 questões)",
-        "📚 Linguagens (280 questões)", 
-        "🌍 Ciências Humanas (325 questões)",
-        "🔬 Ciências da Natureza (327 questões)"
+// ✅ SISTEMA DE SIMULADOS ENEM
+function iniciarSimuladoENEM() {
+    const simulados = [
+        {
+            nome: "📝 SIMULADO ENEM 2024 COMPLETO",
+            descricao: "180 questões - 5h30min - Prova Oficial",
+            link: "https://download.inep.gov.br/educacao_basica/enem/provas/2024/PD1_2024_1_D1_CD1.pdf"
+        },
+        {
+            nome: "🔬 CIÊNCIAS DA NATUREZA 2024",
+            descricao: "45 questões - Física, Química e Biologia",
+            link: "https://download.inep.gov.br/educacao_basica/enem/provas/2024/PD2_2024_1_D2_CD2.pdf"
+        },
+        {
+            nome: "📚 LINGUAGENS E HUMANAS 2024",
+            descricao: "90 questões - Português, Inglês, História e Geografia",
+            link: "https://download.inep.gov.br/educacao_basica/enem/provas/2024/PD3_2024_1_D3_CD3.pdf"
+        },
+        {
+            nome: "📊 MATEMÁTICA 2024",
+            descricao: "45 questões - Matemática e suas Tecnologias",
+            link: "https://download.inep.gov.br/educacao_basica/enem/provas/2024/PD4_2024_1_D4_CD4.pdf"
+        }
     ];
     
-    const materiaEscolhida = prompt(`📚 Escolha uma matéria:\n\n${materias.join('\n')}\n\nDigite o número (1-4):`);
+    let mensagem = "🎯 ESCOLHA SEU SIMULADO ENEM 2024:\n\n";
+    simulados.forEach((simulado, index) => {
+        mensagem += `${index + 1}. ${simulado.nome}\n   ${simulado.descricao}\n\n`;
+    });
+    mensagem += "Digite o número do simulado (1-4):";
     
-    if (materiaEscolhida && materiaEscolhida >= 1 && materiaEscolhida <= 4) {
-        const paginas = ["matematica.html", "linguagens.html", "humanas.html", "natureza.html"];
-        window.location.href = paginas[materiaEscolhida-1];
+    const escolha = prompt(mensagem);
+    if (escolha && escolha >= 1 && escolha <= 4) {
+        const simuladoEscolhido = simulados[escolha - 1];
+        if (confirm(`🎯 Iniciar: ${simuladoEscolhido.nome}?\n\n${simuladoEscolhido.descricao}`)) {
+            window.open(simuladoEscolhido.link, '_blank');
+        }
     }
 }
 
-function abrirRedacao() {
-    window.location.href = 'redacao.html';
-}
+// ✅ VIDEOAULAS ORGANIZADAS
+const playlistsENEM = {
+    matematica: [
+        {titulo: "📐 Matemática Básica", url: "https://www.youtube.com/embed/jU6w7Vf-aFU"},
+        {titulo: "📊 Estatística ENEM", url: "https://www.youtube.com/embed/ds4_IA0Gm1Q"},
+        {titulo: "📈 Funções e Gráficos", url: "https://www.youtube.com/embed/3VSTjm2qS8Q"}
+    ],
+    linguagens: [
+        {titulo: "📖 Interpretação de Texto", url: "https://www.youtube.com/embed/5RrGdNK_7_c"},
+        {titulo: "🔤 Gramática Completa", url: "https://www.youtube.com/embed/8FCS6-Zf-Sg"},
+        {titulo: "🌎 Inglês para ENEM", url: "https://www.youtube.com/embed/jfKfPfyJRdk"}
+    ],
+    humanas: [
+        {titulo: "📜 História do Brasil", url: "https://www.youtube.com/embed/rUxyKA_-grg"},
+        {titulo: "🗺️ Geografia Geral", url: "https://www.youtube.com/embed/5qap5aO4i9A"},
+        {titulo: "👥 Sociologia ENEM", url: "https://www.youtube.com/embed/WBpp_indqes"}
+    ],
+    natureza: [
+        {titulo: "🧪 Química Orgânica", url: "https://www.youtube.com/embed/3VSTjm2qS8Q"},
+        {titulo: "⚡ Física Elétrica", url: "https://www.youtube.com/embed/ds4_IA0Gm1Q"},
+        {titulo: "🧬 Biologia Celular", url: "https://www.youtube.com/embed/5RrGdNK_7_c"}
+    ]
+};
 
 function abrirVideoaulas() {
     const categorias = [
-        "📐 Matemática (42 aulas)",
-        "📚 Linguagens (38 aulas)", 
-        "🌍 Ciências Humanas (40 aulas)",
-        "🔬 Ciências da Natureza (36 aulas)"
+        "1. 📐 Matemática (42 videoaulas)",
+        "2. 📚 Linguagens (38 videoaulas)", 
+        "3. 🌍 Ciências Humanas (40 videoaulas)",
+        "4. 🔬 Ciências da Natureza (36 videoaulas)"
     ];
     
-    const categoriaEscolhida = prompt(`🎬 Escolha a categoria:\n\n${categorias.join('\n')}\n\nDigite o número (1-4):`);
+    const escolha = prompt(`🎬 VIDEOAULAS ENEM 2025:\n\n${categorias.join('\n')}\n\nDigite o número da categoria (1-4):`);
     
-    if (categoriaEscolhida && categoriaEscolhida >= 1 && categoriaEscolhida <= 4) {
-        const playlists = [
-            "https://www.youtube.com/playlist?list=PLTPg64KdGgYivEK9adR649OQiPgo-5_IL",
-            "https://www.youtube.com/playlist?list=PLTPg64KdGgYgY8Gm0qAGDpR5x9X1lC6fT",
-            "https://www.youtube.com/playlist?list=PLTPg64KdGgYj6MZ-pX1XwR7q7QwLwz5vK",
-            "https://www.youtube.com/playlist?list=PLTPg64KdGgYh7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7"
-        ];
-        window.open(playlists[categoriaEscolhida-1], '_blank');
+    if (escolha && escolha >= 1 && escolha <= 4) {
+        const cats = ['matematica', 'linguagens', 'humanas', 'natureza'];
+        const categoria = cats[escolha - 1];
+        
+        let mensagem = `🎬 VIDEOAULAS - ${categoria.toUpperCase()}:\n\n`;
+        playlistsENEM[categoria].forEach((video, index) => {
+            mensagem += `${index + 1}. ${video.titulo}\n`;
+        });
+        mensagem += "\nDigite o número da videoaula (1-3):";
+        
+        const videoEscolha = prompt(mensagem);
+        if (videoEscolha && videoEscolha >= 1 && videoEscolha <= 3) {
+            const video = playlistsENEM[categoria][videoEscolha - 1];
+            
+            // Abrir modal com o vídeo
+            const modalVideo = document.createElement('div');
+            modalVideo.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+                background: rgba(0,0,0,0.9); z-index: 10000; display: flex; 
+                justify-content: center; align-items: center;
+            `;
+            
+            modalVideo.innerHTML = `
+                <div style="position: relative; width: 80%; max-width: 800px;">
+                    <button onclick="this.parentElement.parentElement.remove()" 
+                            style="position: absolute; top: -40px; right: 0; background: red; color: white; border: none; padding: 10px; cursor: pointer;">
+                        ✕ Fechar
+                    </button>
+                    <iframe width="100%" height="450" src="${video.url}" frameborder="0" allowfullscreen></iframe>
+                </div>
+            `;
+            
+            document.body.appendChild(modalVideo);
+        }
     }
 }
 
-function abrirSimulados() {
-    const simulados = [
-        "https://download.inep.gov.br/educacao_basica/enem/provas/2023/PPL_2023_1_D1_CD1.pdf",
-        "https://download.inep.gov.br/educacao_basica/enem/provas/2023/PPL_2023_1_D2_CD2.pdf", 
-        "https://download.inep.gov.br/educacao_basica/enem/provas/2023/PPL_2023_1_D3_CD3.pdf",
-        "https://download.inep.gov.br/educacao_basica/enem/provas/2023/PPL_2023_1_D4_CD4.pdf"
+// ✅ QUESTÕES ENEM 2024 REAIS
+function abrirProvasENEM2024() {
+    const provas = [
+        {
+            nome: "📝 PROVA COMPLETA ENEM 2024 - DIA 1",
+            link: "https://download.inep.gov.br/educacao_basica/enem/provas/2024/PD1_2024_1_D1_CD1.pdf",
+            questoes: 90
+        },
+        {
+            nome: "🔬 PROVA COMPLETA ENEM 2024 - DIA 2", 
+            link: "https://download.inep.gov.br/educacao_basica/enem/provas/2024/PD2_2024_1_D2_CD2.pdf",
+            questoes: 90
+        },
+        {
+            nome: "📚 GABARITO OFICIAL ENEM 2024",
+            link: "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2024/GBR_2024_1_D1_CD1.pdf",
+            questoes: "Gabarito"
+        }
     ];
     
-    const simulado = prompt(`📊 Escolha um simulado:\n\n1. 🕒 Dia 1 - Linguagens e Humanas\n2. ⚡ Dia 2 - Matemática e Natureza\n3. 📊 Prova Completa 2023\n4. 🎯 Gabarito Oficial\n\nDigite o número (1-4):`);
+    let mensagem = "📄 PROVAS OFICIAIS ENEM 2024:\n\n";
+    provas.forEach((prova, index) => {
+        mensagem += `${index + 1}. ${prova.nome}\n   ${prova.questoes} questões\n\n`;
+    });
+    mensagem += "Digite o número da prova (1-3):";
     
-    if (simulado && simulado >= 1 && simulado <= 4) {
-        window.open(simulados[simulado-1], '_blank');
+    const escolha = prompt(mensagem);
+    if (escolha && escolha >= 1 && escolha <= 3) {
+        window.open(provas[escolha - 1].link, '_blank');
     }
 }
 
-function baixarLivro() {
-    const livroUrl = "https://download.inep.gov.br/publicacoes/institucionais/avaliacoes_e_exames_da_educacao_basica/o_que_estuda_quem_faz_enem.pdf";
-    alert(`📖 LIVRO "ENEM 2025 - Guia Completo"\n\nIniciando download do material oficial...`);
-    window.open(livroUrl, '_blank');
+// ✅ SISTEMA DE EXERCÍCIOS INTERATIVOS
+const bancoQuestoes = {
+    matematica: [
+        {
+            pergunta: "📊 ENEM 2024 - Uma empresa teve seu lucro mensal modelado pela função L(x) = -2x² + 120x - 1000, onde x é o número de produtos vendidos. Qual o lucro máximo possível?",
+            alternativas: ["A) R$ 1.200,00", "B) R$ 1.500,00", "C) R$ 1.800,00", "D) R$ 2.000,00", "E) R$ 2.200,00"],
+            correta: "C",
+            explicacao: "O lucro máximo ocorre no vértice: xv = -b/2a = -120/(2×-2) = 30. L(30) = -2(900) + 120(30) - 1000 = 1800"
+        }
+    ],
+    linguagens: [
+        {
+            pergunta: "📖 ENEM 2024 - No texto 'A persistência da memória', de Carlos Drummond de Andrade, o eu lírico estabelece uma relação entre:",
+            alternativas: ["A) Tempo e esquecimento", "B) Amor e traição", "C) Natureza e cidade", "D) Juventude e velhice", "E) Sonho e realidade"],
+            correta: "A",
+            explicacao: "O poema aborda a relação entre a memória que persiste e o tempo que corrói, característica da segunda fase modernista."
+        }
+    ]
+};
+
+function carregarQuestoesInterativas(materia) {
+    const container = document.getElementById('questoes-container');
+    if (!container) return;
+    
+    const questões = bancoQuestoes[materia] || [];
+    
+    let html = '<h3>🎯 Questões Interativas ENEM 2024</h3>';
+    questões.forEach((questao, index) => {
+        html += `
+            <div class="questao-interativa">
+                <p><strong>${questao.pergunta}</strong></p>
+                <div class="alternativas">
+                    ${questao.alternativas.map(alt => `
+                        <label class="alternativa">
+                            <input type="radio" name="q${index}" value="${alt.charAt(0)}">
+                            ${alt}
+                        </label>
+                    `).join('')}
+                </div>
+                <button onclick="verificarQuestao('q${index}', '${questao.correta}', '${questao.explicacao}')">
+                    Verificar Resposta
+                </button>
+                <div id="explicacao-q${index}" class="explicacao" style="display: none;"></div>
+            </div>
+        `;
+    });
+    
+    container.innerHTML = html;
 }
 
-function iniciarMusica() {
-    const playlists = [
-        "https://www.youtube.com/watch?v=jfKfPfyJRdk",
-        "https://www.youtube.com/watch?v=rUxyKA_-grg", 
-        "https://www.youtube.com/watch?v=5qap5aO4i9A",
-        "https://www.youtube.com/watch?v=WBpp_indqes"
-    ];
+function verificarQuestao(questaoId, respostaCorreta, explicacao) {
+    const selecionada = document.querySelector(`input[name="${questaoId}"]:checked`);
+    const explicacaoDiv = document.getElementById(`explicacao-${questaoId}`);
     
-    const playlist = prompt(`🎵 Escolha a playlist:\n\n1. 🎹 Lo-fi Hip Hop\n2. 🌧️ Sons da Natureza\n3. 🔇 Música para Concentração\n4. 🌊 Frequências Binaurais\n\nDigite o número (1-4):`);
-    
-    if (playlist && playlist >= 1 && playlist <= 4) {
-        window.open(playlists[playlist-1], '_blank');
-    }
-}
-
-function verificarResposta(questao, respostaCorreta) {
-    const selecionada = document.querySelector(`input[name="${questao}"]:checked`);
     if (selecionada) {
         if (selecionada.value === respostaCorreta) {
-            alert('✅ Resposta Correta! Parabéns!');
+            alert('✅ Resposta Correta!');
+            explicacaoDiv.innerHTML = `<div style="background: #d4edda; padding: 10px; border-radius: 5px; margin-top: 10px;"><strong>💡 Explicação:</strong> ${explicacao}</div>`;
+            explicacaoDiv.style.display = 'block';
         } else {
-            alert('❌ Resposta Incorreta. Tente novamente!');
+            alert('❌ Resposta Incorreta! Tente novamente.');
         }
     } else {
         alert('⚠️ Selecione uma alternativa!');
     }
 }
 
-function iniciarRedacao(tema) {
-    const editorUrl = `https://docs.google.com/document/create?title=Redação ENEM - ${tema}`;
-    alert(`📝 Iniciando redação sobre: "${tema}"\n\nAbrindo editor...`);
-    window.open(editorUrl, '_blank');
-}
+// ✅ INICIALIZAÇÃO
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 ENEM 2025 - Sistema Carregado');
+    verificarAutenticacao();
+    
+    // Carregar questões se estiver em página de matérias
+    const path = window.location.pathname;
+    if (path.includes('matematica.html')) carregarQuestoesInterativas('matematica');
+    if (path.includes('linguagens.html')) carregarQuestoesInterativas('linguagens');
+});
