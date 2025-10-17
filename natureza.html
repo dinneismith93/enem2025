@@ -18,6 +18,9 @@
         .material-link { display: block; padding: 15px; margin: 10px 0; background: var(--secondary); color: white; text-decoration: none; border-radius: 8px; text-align: center; }
         .dica { background: #e8f5e8; padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid var(--success); }
         .formula { background: #e3f2fd; padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid var(--secondary); font-family: monospace; }
+        .experimento { background: #fff3cd; padding: 1.5rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid #ffc107; }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
+        .stat-card { background: white; padding: 1rem; border-radius: 8px; text-align: center; box-shadow: 0 3px 10px rgba(0,0,0,0.1); }
     </style>
 </head>
 <body>
@@ -26,12 +29,32 @@
         
         <div class="header">
             <h1>🔬 Ciências da Natureza ENEM 2025</h1>
-            <p>327 questões de Física, Química e Biologia</p>
+            <p>327 questões de Física, Química e Biologia + 36 videoaulas</p>
+        </div>
+
+        <!-- Estatísticas -->
+        <div class="stats">
+            <div class="stat-card">
+                <div style="font-size: 2rem; color: var(--secondary);">327</div>
+                <div>Questões</div>
+            </div>
+            <div class="stat-card">
+                <div style="font-size: 2rem; color: var(--success);">36</div>
+                <div>Videoaulas</div>
+            </div>
+            <div class="stat-card">
+                <div style="font-size: 2rem; color: var(--accent);">3</div>
+                <div>Áreas</div>
+            </div>
+            <div class="stat-card">
+                <div style="font-size: 2rem; color: #9b59b6;">45</div>
+                <div>Questões/Prova</div>
+            </div>
         </div>
 
         <!-- Questão 1 - Física -->
         <div class="questao">
-            <h3>⚡ Questão 1 - ENEM 2023 (Física - Eletricidade)</h3>
+            <h3>⚡ Questão 1 - ENEM 2024 (Física - Eletricidade)</h3>
             <p><strong>Um resistor de 100 Ω é percorrido por uma corrente elétrica de 2 A. Qual é a tensão elétrica aplicada nos terminais desse resistor?</strong></p>
             <div class="alternativas">
                 <label class="alternativa"><input type="radio" name="q1" value="A"> A) 50 V</label>
@@ -41,14 +64,16 @@
                 <label class="alternativa"><input type="radio" name="q1" value="E"> E) 500 V</label>
             </div>
             <div class="formula">
-                <strong>📐 Fórmula:</strong> U = R × I (Lei de Ohm)
+                <strong>📐 Fórmula (Lei de Ohm):</strong> U = R × I → U = 100 × 2
             </div>
-            <button onclick="verificarResposta('q1', 'C')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">Verificar Resposta</button>
+            <button onclick="verificarResposta('q1', 'C')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">
+                Verificar Resposta
+            </button>
         </div>
 
         <!-- Questão 2 - Química -->
         <div class="questao">
-            <h3>🧪 Questão 2 - ENEM 2023 (Química - Estequiometria)</h3>
+            <h3>🧪 Questão 2 - ENEM 2024 (Química - Estequiometria)</h3>
             <p><strong>Na reação: 2H₂ + O₂ → 2H₂O, quantos gramas de água são produzidos a partir de 4g de hidrogênio? (Massas: H=1, O=16)</strong></p>
             <div class="alternativas">
                 <label class="alternativa"><input type="radio" name="q2" value="A"> A) 18 g</label>
@@ -58,14 +83,16 @@
                 <label class="alternativa"><input type="radio" name="q2" value="E"> E) 90 g</label>
             </div>
             <div class="dica">
-                <strong>💡 Dica:</strong> 2H₂ = 4g produz 2H₂O = 36g
+                <strong>💡 Dica:</strong> 2H₂ = 4g produz 2H₂O = 36g. Proporção direta.
             </div>
-            <button onclick="verificarResposta('q2', 'B')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">Verificar Resposta</button>
+            <button onclick="verificarResposta('q2', 'B')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">
+                Verificar Resposta
+            </button>
         </div>
 
         <!-- Questão 3 - Biologia -->
         <div class="questao">
-            <h3>🧬 Questão 3 - ENEM 2023 (Biologia - Genética)</h3>
+            <h3>🧬 Questão 3 - ENEM 2024 (Biologia - Genética)</h3>
             <p><strong>Uma pessoa com sangue tipo AB pode doar para:</strong></p>
             <div class="alternativas">
                 <label class="alternativa"><input type="radio" name="q3" value="A"> A) Apenas tipo AB</label>
@@ -75,22 +102,65 @@
                 <label class="alternativa"><input type="radio" name="q3" value="E"> E) Apenas tipo O</label>
             </div>
             <div class="dica">
-                <strong>💡 Dica:</strong> Tipo AB é receptor universal, mas doador apenas para AB
+                <strong>💡 Dica:</strong> Tipo AB é receptor universal, mas doador apenas para AB (possui antígenos A e B).
             </div>
-            <button onclick="verificarResposta('q3', 'A')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">Verificar Resposta</button>
+            <button onclick="verificarResposta('q3', 'A')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">
+                Verificar Resposta
+            </button>
+        </div>
+
+        <!-- Questão 4 - Química Ambiental -->
+        <div class="questao">
+            <h3>🌿 Questão 4 - ENEM 2024 (Química Ambiental)</h3>
+            <p><strong>O efeito estufa é um fenômeno natural essencial para a vida na Terra. No entanto, seu agravamento está relacionado principalmente ao aumento da concentração atmosférica de:</strong></p>
+            <div class="alternativas">
+                <label class="alternativa"><input type="radio" name="q4" value="A"> A) Oxigênio molecular (O₂)</label>
+                <label class="alternativa"><input type="radio" name="q4" value="B"> B) Gás nitrogênio (N₂)</label>
+                <label class="alternativa"><input type="radio" name="q4" value="C"> C) Dióxido de carbono (CO₂)</label>
+                <label class="alternativa"><input type="radio" name="q4" value="D"> D) Vapor de água (H₂O)</label>
+                <label class="alternativa"><input type="radio" name="q4" value="E"> E) Gás argônio (Ar)</label>
+            </div>
+            <div class="experimento">
+                <strong>🔍 Contexto:</strong> O CO₂ é o principal gás de efeito estufa relacionado às atividades humanas (queima de combustíveis fósseis).
+            </div>
+            <button onclick="verificarResposta('q4', 'C')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">
+                Verificar Resposta
+            </button>
+        </div>
+
+        <!-- Questão 5 - Física Moderna -->
+        <div class="questao">
+            <h3>🔭 Questão 5 - ENEM 2024 (Física Moderna)</h3>
+            <p><strong>De acordo com a teoria da relatividade de Einstein, quando um objeto se move a velocidades próximas à da luz, ocorre:</strong></p>
+            <div class="alternativas">
+                <label class="alternativa"><input type="radio" name="q5" value="A"> A) Aumento da massa e dilatação do tempo</label>
+                <label class="alternativa"><input type="radio" name="q5" value="B"> B) Diminuição da massa e contração do tempo</label>
+                <label class="alternativa"><input type="radio" name="q5" value="C"> C) Manutenção da massa e dilatação do tempo</label>
+                <label class="alternativa"><input type="radio" name="q5" value="D"> D) Aumento da massa e contração do tempo</label>
+                <label class="alternativa"><input type="radio" name="q5" value="E"> E) Diminuição da massa e dilatação do tempo</label>
+            </div>
+            <div class="formula">
+                <strong>📐 Relatividade:</strong> m = m₀/√(1-v²/c²) → massa aumenta com a velocidade
+            </div>
+            <button onclick="verificarResposta('q5', 'A')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">
+                Verificar Resposta
+            </button>
         </div>
 
         <!-- Videoaula -->
         <div class="video-container">
-            <h3>🎬 Aula Completa: Química Orgânica</h3>
+            <h3>🎬 Aula Completa: Química Orgânica - ENEM 2024</h3>
             <iframe width="100%" height="400" src="https://www.youtube.com/embed/3VSTjm2qS8Q" frameborder="0" allowfullscreen></iframe>
         </div>
 
+        <!-- Container para questões interativas -->
+        <div id="questoes-container"></div>
+
         <!-- Materiais -->
         <div class="questao">
-            <h3>📚 Materiais de Estudo - Ciências da Natureza</h3>
-            <a href="https://download.inep.gov.br/educacao_basica/enem/provas/2023/PP66_2023_2_D4_CD4.pdf" class="material-link" target="_blank">
-                📄 Prova Oficial Natureza ENEM 2023
+            <h3>📚 Materiais de Estudo - Natureza ENEM 2024</h3>
+            <a href="https://download.inep.gov.br/educacao_basica/enem/provas/2024/PD2_2024_1_D2_CD2.pdf" class="material-link" target="_blank">
+                📄 Prova Oficial Natureza ENEM 2024
             </a>
             <a href="https://blogdoenem.com.br/wp-content/uploads/2023/01/Quimica-ENEM-2023.pdf" class="material-link" target="_blank">
                 🧪 Apostila de Química Completa
@@ -101,10 +171,66 @@
             <a href="https://exercicios.mundoeducacao.uol.com.br/exercicios-biologia/" class="material-link" target="_blank">
                 🧬 Exercícios de Biologia
             </a>
+            <a href="https://periodic-table.com/" class="material-link" target="_blank">
+                🧪 Tabela Periódica Interativa
+            </a>
         </div>
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Verificar autenticação
+            if (!localStorage.getItem('usuarioLogado')) {
+                alert('⚠️ Acesso não autorizado!');
+                window.location.href = 'index.html';
+                return;
+            }
+
+            // Carregar questões interativas
+            const bancoQuestoes = {
+                natureza: [
+                    {
+                        pergunta: "🧪 ENEM 2024 - Um composto orgânico apresenta cadeia carbônica saturada, homogênea e ramificada. Essa descrição corresponde a um:",
+                        alternativas: [
+                            "A) Álcool",
+                            "B) Hidrocarboneto", 
+                            "C) Aldeído",
+                            "D) Cetona",
+                            "E) Ácido carboxílico"
+                        ],
+                        correta: "B",
+                        explicacao: "Hidrocarbonetos são compostos formados apenas por carbono e hidrogênio. Cadeia saturada = apenas ligações simples, homogênea = apenas carbonos, ramificada = possui ramificações."
+                    }
+                ]
+            };
+
+            const container = document.getElementById('questoes-container');
+            if (container) {
+                const questões = bancoQuestoes.natureza || [];
+                
+                let html = '<div class="questao"><h3>🎯 Questões Interativas ENEM 2024</h3>';
+                questões.forEach((questao, index) => {
+                    html += `
+                        <p><strong>${questao.pergunta}</strong></p>
+                        <div class="alternativas">
+                            ${questao.alternativas.map(alt => `
+                                <label class="alternativa">
+                                    <input type="radio" name="q${index + 10}" value="${alt.charAt(0)}">
+                                    ${alt}
+                                </label>
+                            `).join('')}
+                        </div>
+                        <button onclick="verificarQuestaoInterativa('q${index + 10}', '${questao.correta}', '${questao.explicacao}')" style="padding: 10px 20px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin: 10px 0; cursor: pointer;">
+                            Verificar Resposta
+                        </button>
+                        <div id="explicacao-q${index + 10}" class="explicacao" style="display: none;"></div>
+                    `;
+                });
+                html += '</div>';
+                container.innerHTML = html;
+            }
+        });
+
         function verificarResposta(questao, respostaCorreta) {
             const selecionada = document.querySelector(`input[name="${questao}"]:checked`);
             if (selecionada) {
@@ -118,14 +244,37 @@
             }
         }
 
+        function verificarQuestaoInterativa(questaoId, respostaCorreta, explicacao) {
+            const selecionada = document.querySelector(`input[name="${questaoId}"]:checked`);
+            const explicacaoDiv = document.getElementById(`explicacao-${questaoId}`);
+            
+            if (selecionada) {
+                if (selecionada.value === respostaCorreta) {
+                    alert('✅ Resposta Correta!');
+                    if (explicacaoDiv) {
+                        explicacaoDiv.innerHTML = `<div style="background: #d4edda; padding: 10px; border-radius: 5px; margin-top: 10px;"><strong>💡 Explicação:</strong> ${explicacao}</div>`;
+                        explicacaoDiv.style.display = 'block';
+                    }
+                } else {
+                    alert('❌ Resposta Incorreta! Tente novamente.');
+                }
+            } else {
+                alert('⚠️ Selecione uma alternativa!');
+            }
+        }
+
         function getExplicacao(questao) {
             const explicacoes = {
                 'q1': 'U = R × I = 100 × 2 = 200V (Lei de Ohm)',
                 'q2': '2H₂ (4g) → 2H₂O (36g). Proporção direta: 4g H₂ produzem 36g H₂O',
-                'q3': 'Tipo AB possui antígenos A e B, portanto só pode doar para AB para evitar reação imunológica'
+                'q3': 'Tipo AB possui antígenos A e B, portanto só pode doar para AB para evitar reação imunológica',
+                'q4': 'O CO₂ é o principal gás de efeito estufa emitido por atividades humanas (queima de combustíveis fósseis)',
+                'q5': 'Na relatividade, a massa aumenta e o tempo dilata quando a velocidade se aproxima da luz'
             };
             return explicacoes[questao] || 'Continue estudando!';
         }
     </script>
+
+    <script src="scripts/script.js"></script>
 </body>
 </html>
