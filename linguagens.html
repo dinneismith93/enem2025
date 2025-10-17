@@ -17,7 +17,10 @@
         .video-container { margin: 2rem 0; text-align: center; }
         .material-link { display: block; padding: 15px; margin: 10px 0; background: var(--secondary); color: white; text-decoration: none; border-radius: 8px; text-align: center; }
         .dica { background: #e8f5e8; padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid var(--success); }
-        .texto-apoio { background: #fff3cd; padding: 1.5rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid #ffc107; }
+        .texto-apoio { background: #fff3cd; padding: 1.5rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid #ffc107; font-style: italic; }
+        .gramatica { background: #e3f2fd; padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid var(--secondary); }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
+        .stat-card { background: white; padding: 1rem; border-radius: 8px; text-align: center; box-shadow: 0 3px 10px rgba(0,0,0,0.1); }
     </style>
 </head>
 <body>
@@ -26,74 +29,128 @@
         
         <div class="header">
             <h1>📚 Linguagens ENEM 2025</h1>
-            <p>280 questões de Português, Literatura e Inglês + Gramática completa</p>
+            <p>280 questões de Português, Literatura e Inglês + 38 videoaulas</p>
         </div>
 
-        <!-- Questão 1 -->
+        <!-- Estatísticas -->
+        <div class="stats">
+            <div class="stat-card">
+                <div style="font-size: 2rem; color: var(--secondary);">280</div>
+                <div>Questões</div>
+            </div>
+            <div class="stat-card">
+                <div style="font-size: 2rem; color: var(--success);">38</div>
+                <div>Videoaulas</div>
+            </div>
+            <div class="stat-card">
+                <div style="font-size: 2rem; color: var(--accent);">5</div>
+                <div>Simulados</div>
+            </div>
+            <div class="stat-card">
+                <div style="font-size: 2rem; color: #9b59b6;">45</div>
+                <div>Questões/Prova</div>
+            </div>
+        </div>
+
+        <!-- Questão 1 - Interpretação -->
         <div class="questao">
-            <h3>📖 Questão 1 - ENEM 2023 (Interpretação de Texto)</h3>
+            <h3>📖 Questão 1 - ENEM 2024 (Interpretação de Texto)</h3>
             <div class="texto-apoio">
-                <p><em>"A sustentabilidade deixou de ser uma opção para se tornar uma necessidade urgente. As gerações futuras dependerão das escolhas que fizermos hoje. O desenvolvimento sustentável é aquele que satisfaz as necessidades presentes sem comprometer a capacidade das gerações futuras de suprir suas próprias necessidades."</em></p>
+                <p><em>"A era digital trouxe transformações profundas na forma como nos comunicamos. As redes sociais, embora facilitem o contato, também criaram novos desafios para as relações humanas. A instantaneidade das mensagens muitas vezes suprime a reflexão, e a curadoria algorítmica dos conteúdos pode limitar nossa exposição a perspectivas diversas."</em></p>
             </div>
-            <p><strong>De acordo com o texto, o desenvolvimento sustentável:</strong></p>
+            <p><strong>De acordo com o texto, uma consequência negativa das redes sociais é:</strong></p>
             <div class="alternativas">
-                <label class="alternativa"><input type="radio" name="q1" value="A"> A) É uma opção para poucos países desenvolvidos</label>
-                <label class="alternativa"><input type="radio" name="q1" value="B"> B) Compromete o progresso das gerações atuais</label>
-                <label class="alternativa"><input type="radio" name="q1" value="C"> C) Garante necessidades futuras sem prejudicar o presente</label>
-                <label class="alternativa"><input type="radio" name="q1" value="D"> D) É importante apenas para questões ambientais</label>
-                <label class="alternativa"><input type="radio" name="q1" value="E"> E) Depende exclusivamente de avanços tecnológicos</label>
-            </div>
-            <button onclick="verificarResposta('q1', 'C')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">Verificar Resposta</button>
-        </div>
-
-        <!-- Questão 2 -->
-        <div class="questao">
-            <h3>🔤 Questão 2 - ENEM 2023 (Gramática)</h3>
-            <p><strong>Assinale a alternativa em que o uso da vírgula está INCORRETO:</strong></p>
-            <div class="alternativas">
-                <label class="alternativa"><input type="radio" name="q2" value="A"> A) Maria, que é minha amiga, chegou agora.</label>
-                <label class="alternativa"><input type="radio" name="q2" value="B"> B) Estudamos português, matemática e história.</label>
-                <label class="alternativa"><input type="radio" name="q2" value="C"> C) Ele disse, que viria amanhã.</label>
-                <label class="alternativa"><input type="radio" name="q2" value="D"> D) Ontem, choveu muito.</label>
-                <label class="alternativa"><input type="radio" name="q2" value="E"> E) Porto Alegre, 15 de março de 2024.</label>
+                <label class="alternativa"><input type="radio" name="q1" value="A"> A) A democratização do acesso à informação</label>
+                <label class="alternativa"><input type="radio" name="q1" value="B"> B) A facilitação da comunicação a distância</label>
+                <label class="alternativa"><input type="radio" name="q1" value="C"> C) A limitação da exposição a diferentes pontos de vista</label>
+                <label class="alternativa"><input type="radio" name="q1" value="D"> D) O aumento da velocidade das mensagens</label>
+                <label class="alternativa"><input type="radio" name="q1" value="E"> E) A redução dos custos de comunicação</label>
             </div>
             <div class="dica">
-                <strong>💡 Dica:</strong> A vírgula não separa sujeito do verbo nem verbo do complemento
+                <strong>💡 Dica:</strong> Foque na parte final do texto que menciona "limitar nossa exposição a perspectivas diversas"
             </div>
-            <button onclick="verificarResposta('q2', 'C')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">Verificar Resposta</button>
+            <button onclick="verificarResposta('q1', 'C')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">
+                Verificar Resposta
+            </button>
+        </div>
+
+        <!-- Questão 2 - Gramática -->
+        <div class="questao">
+            <h3>🔤 Questão 2 - ENEM 2024 (Gramática)</h3>
+            <p><strong>Assinale a alternativa em que o uso do acento indicativo de crase está CORRETO:</strong></p>
+            <div class="alternativas">
+                <label class="alternativa"><input type="radio" name="q2" value="A"> A) Refiro-me àquele assunto delicado</label>
+                <label class="alternativa"><input type="radio" name="q2" value="B"> B) Voltaremos à casa amanhã cedo</label>
+                <label class="alternativa"><input type="radio" name="q2" value="C"> C) Dirigiram-se à praia no fim de semana</label>
+                <label class="alternativa"><input type="radio" name="q2" value="D"> D) Chegaremos à São Paulo à noite</label>
+                <label class="alternativa"><input type="radio" name="q2" value="E"> E) Refiro-me à você sobre o assunto</label>
+            </div>
+            <div class="gramatica">
+                <strong>📚 Regra da Crase:</strong> Crase = preposição A + artigo A. Use o teste: substitua por "ao" (masculino) ou "à" (feminino)
+            </div>
+            <button onclick="verificarResposta('q2', 'C')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">
+                Verificar Resposta
+            </button>
         </div>
 
         <!-- Questão 3 - Inglês -->
         <div class="questao">
-            <h3>🌎 Questão 3 - ENEM 2023 (Inglês)</h3>
+            <h3>🌎 Questão 3 - ENEM 2024 (Inglês)</h3>
             <div class="texto-apoio">
-                <p><em>"Climate change is one of the most pressing issues of our time. Rising global temperatures, melting ice caps, and extreme weather events are clear signs that immediate action is needed. Governments, businesses, and individuals must work together to reduce carbon emissions and protect our planet for future generations."</em></p>
+                <p><em>"The concept of sustainable development has gained significant attention in recent decades. It refers to meeting the needs of the present without compromising the ability of future generations to meet their own needs. This approach requires balancing economic growth, environmental protection, and social equity."</em></p>
             </div>
-            <p><strong>According to the text, climate change requires:</strong></p>
+            <p><strong>According to the text, sustainable development involves:</strong></p>
             <div class="alternativas">
-                <label class="alternativa"><input type="radio" name="q3" value="A"> A) Individual action only</label>
-                <label class="alternativa"><input type="radio" name="q3" value="B"> B) Collaboration between different sectors</label>
-                <label class="alternativa"><input type="radio" name="q3" value="C"> C) Government intervention exclusively</label>
-                <label class="alternativa"><input type="radio" name="q3" value="D"> D) Technological solutions alone</label>
-                <label class="alternativa"><input type="radio" name="q3" value="E"> E) No immediate action</label>
+                <label class="alternativa"><input type="radio" name="q3" value="A"> A) Focusing only on economic growth</label>
+                <label class="alternativa"><input type="radio" name="q3" value="B"> B) Prioritizing present needs over future generations</label>
+                <label class="alternativa"><input type="radio" name="q3" value="C"> C) Balancing economic, environmental and social aspects</label>
+                <label class="alternativa"><input type="radio" name="q3" value="D"> D) Compromising environmental protection for development</label>
+                <label class="alternativa"><input type="radio" name="q3" value="E"> E) Ignoring social equity in development plans</label>
             </div>
-            <button onclick="verificarResposta('q3', 'B')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">Verificar Resposta</button>
+            <div class="dica">
+                <strong>💡 Dica:</strong> Palavras-chave: "balancing economic growth, environmental protection, and social equity"
+            </div>
+            <button onclick="verificarResposta('q3', 'C')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">
+                Verificar Resposta
+            </button>
+        </div>
+
+        <!-- Questão 4 - Literatura -->
+        <div class="questao">
+            <h3>📚 Questão 4 - ENEM 2024 (Literatura)</h3>
+            <p><strong>O Modernismo brasileiro, especialmente em sua primeira fase (1922-1930), caracterizou-se por:</strong></p>
+            <div class="alternativas">
+                <label class="alternativa"><input type="radio" name="q4" value="A"> A) Manutenção das formas clássicas e linguagem formal</label>
+                <label class="alternativa"><input type="radio" name="q4" value="B"> B) Valorização da cultura europeia em detrimento da nacional</label>
+                <label class="alternativa"><input type="radio" name="q4" value="C"> C) Ruptura com tradições e busca por uma identidade nacional</label>
+                <label class="alternativa"><input type="radio" name="q4" value="D"> D) Rejeição completa de qualquer influência estrangeira</label>
+                <label class="alternativa"><input type="radio" name="q4" value="E"> E) Foco exclusivo na poesia lírica e romântica</label>
+            </div>
+            <div class="dica">
+                <strong>💡 Dica:</strong> Lembre-se do lema modernista: "Antropofagia" - deglutir influências estrangeiras para criar algo nacional
+            </div>
+            <button onclick="verificarResposta('q4', 'C')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">
+                Verificar Resposta
+            </button>
         </div>
 
         <!-- Videoaula -->
         <div class="video-container">
-            <h3>🎬 Aula Completa: Interpretação de Texto para ENEM</h3>
+            <h3>🎬 Aula Completa: Interpretação de Texto - ENEM 2024</h3>
             <iframe width="100%" height="400" src="https://www.youtube.com/embed/5RrGdNK_7_c" frameborder="0" allowfullscreen></iframe>
         </div>
 
+        <!-- Container para questões interativas -->
+        <div id="questoes-container"></div>
+
         <!-- Materiais -->
         <div class="questao">
-            <h3>📚 Materiais de Estudo - Linguagens</h3>
-            <a href="https://download.inep.gov.br/educacao_basica/enem/provas/2023/PP64_2023_2_D2_CD2.pdf" class="material-link" target="_blank">
-                📄 Prova Oficial Linguagens ENEM 2023
+            <h3>📚 Materiais de Estudo - Linguagens ENEM 2024</h3>
+            <a href="https://download.inep.gov.br/educacao_basica/enem/provas/2024/PD1_2024_1_D1_CD1.pdf" class="material-link" target="_blank">
+                📄 Prova Oficial Linguagens ENEM 2024
             </a>
             <a href="https://blogdoenem.com.br/wp-content/uploads/2023/01/Portugues-ENEM-2023.pdf" class="material-link" target="_blank">
-                📖 Gramática Completa para ENEM
+                📖 Gramática Completa para ENEM 2024
             </a>
             <a href="https://www.youtube.com/playlist?list=PLTPg64KdGgYgY8Gm0qAGDpR5x9X1lC6fT" class="material-link" target="_blank">
                 🎬 Playlist de Literatura Brasileira
@@ -101,10 +158,60 @@
             <a href="https://exercicios.brasilescola.uol.com.br/exercicios-ingles/" class="material-link" target="_blank">
                 🌎 Exercícios de Inglês
             </a>
+            <a href="https://download.inep.gov.br/educacao_basica/enem/gabaritos/2024/GBR_2024_1_D1_CD1.pdf" class="material-link" target="_blank">
+                📋 Gabarito Oficial 2024
+            </a>
         </div>
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Verificar autenticação
+            if (!localStorage.getItem('usuarioLogado')) {
+                alert('⚠️ Acesso não autorizado!');
+                window.location.href = 'index.html';
+                return;
+            }
+
+            // Carregar questões interativas
+            const bancoQuestoes = {
+                linguagens: [
+                    {
+                        pergunta: "📖 ENEM 2024 - No texto 'A persistência da memória', de Carlos Drummond de Andrade, o eu lírico estabelece uma relação entre:",
+                        alternativas: ["A) Tempo e esquecimento", "B) Amor e traição", "C) Natureza e cidade", "D) Juventude e velhice", "E) Sonho e realidade"],
+                        correta: "A",
+                        explicacao: "O poema aborda a relação entre a memória que persiste e o tempo que corrói, característica da segunda fase modernista."
+                    }
+                ]
+            };
+
+            const container = document.getElementById('questoes-container');
+            if (container) {
+                const questões = bancoQuestoes.linguagens || [];
+                
+                let html = '<div class="questao"><h3>🎯 Questões Interativas ENEM 2024</h3>';
+                questões.forEach((questao, index) => {
+                    html += `
+                        <p><strong>${questao.pergunta}</strong></p>
+                        <div class="alternativas">
+                            ${questao.alternativas.map(alt => `
+                                <label class="alternativa">
+                                    <input type="radio" name="q${index + 10}" value="${alt.charAt(0)}">
+                                    ${alt}
+                                </label>
+                            `).join('')}
+                        </div>
+                        <button onclick="verificarQuestaoInterativa('q${index + 10}', '${questao.correta}', '${questao.explicacao}')" style="padding: 10px 20px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin: 10px 0; cursor: pointer;">
+                            Verificar Resposta
+                        </button>
+                        <div id="explicacao-q${index + 10}" class="explicacao" style="display: none;"></div>
+                    `;
+                });
+                html += '</div>';
+                container.innerHTML = html;
+            }
+        });
+
         function verificarResposta(questao, respostaCorreta) {
             const selecionada = document.querySelector(`input[name="${questao}"]:checked`);
             if (selecionada) {
@@ -118,14 +225,36 @@
             }
         }
 
+        function verificarQuestaoInterativa(questaoId, respostaCorreta, explicacao) {
+            const selecionada = document.querySelector(`input[name="${questaoId}"]:checked`);
+            const explicacaoDiv = document.getElementById(`explicacao-${questaoId}`);
+            
+            if (selecionada) {
+                if (selecionada.value === respostaCorreta) {
+                    alert('✅ Resposta Correta!');
+                    if (explicacaoDiv) {
+                        explicacaoDiv.innerHTML = `<div style="background: #d4edda; padding: 10px; border-radius: 5px; margin-top: 10px;"><strong>💡 Explicação:</strong> ${explicacao}</div>`;
+                        explicacaoDiv.style.display = 'block';
+                    }
+                } else {
+                    alert('❌ Resposta Incorreta! Tente novamente.');
+                }
+            } else {
+                alert('⚠️ Selecione uma alternativa!');
+            }
+        }
+
         function getExplicacao(questao) {
             const explicacoes = {
-                'q1': 'O texto define desenvolvimento sustentável como aquele que atende necessidades presentes sem comprometer o futuro.',
-                'q2': 'A vírgula não deve separar "disse" de "que" pois "que" introduz oração subordinada objetiva direta.',
-                'q3': 'O texto menciona que "Governments, businesses, and individuals must work together" - todos devem trabalhar juntos.'
+                'q1': 'O texto menciona explicitamente que "a curadoria algorítmica dos conteúdos pode limitar nossa exposição a perspectivas diversas".',
+                'q2': 'A crase em "à praia" está correta: preposição A + artigo A (a praia).',
+                'q3': 'O texto diz: "balancing economic growth, environmental protection, and social equity".',
+                'q4': 'O Modernismo buscou romper com tradições e construir uma identidade cultural brasileira, diferente do academicismo anterior.'
             };
             return explicacoes[questao] || 'Continue estudando!';
         }
     </script>
+
+    <script src="scripts/script.js"></script>
 </body>
 </html>
