@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redação - ENEM 2025</title>
+    <style>
+        :root { --primary: #2c3e50; --secondary: #3498db; --accent: #e74c3c; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI'; }
+        body { background-color: #f5f7fa; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header { background: var(--primary); color: white; padding: 1rem; border-radius: 10px; margin-bottom: 2rem; }
+        .btn-voltar { background: var(--accent); color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        .tema-card { background: white; padding: 2rem; margin: 1rem 0; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .btn-tema { background: var(--secondary); color: white; padding: 15px; border: none; border-radius: 8px; cursor: pointer; width: 100%; margin-top: 10px; font-size: 1.1rem; }
+        .dica { background: #e8f5e8; padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid #2ecc71; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="btn-voltar" onclick="window.history.back()">← Voltar</button>
+            <h1>✍️ Redação ENEM 2025</h1>
+            <p>20 temas atuais + correção detalhada</p>
+        </div>
+
+        <!-- Tema 1 -->
+        <div class="tema-card">
+            <h3>🤖 Tema 1: Inteligência Artificial na Educação Brasileira</h3>
+            <p><strong>Proposta:</strong> Discuta os impactos da IA no sistema educacional brasileiro e os desafios para sua implementação.</p>
+            
+            <div class="dica">
+                <h4>💡 Dicas para este tema:</h4>
+                <ul>
+                    <li>Aborde a democratização do acesso à educação</li>
+                    <li>Mencione os desafios da infraestrutura tecnológica</li>
+                    <li>Discuta a formação de professores para a era digital</li>
+                </ul>
+            </div>
+            
+            <button class="btn-tema" onclick="iniciarRedacao('Inteligência Artificial na Educação Brasileira')">
+                🖊️ Escrever Redação sobre este Tema
+            </button>
+        </div>
+
+        <!-- Tema 2 -->
+        <div class="tema-card">
+            <h3>💚 Tema 2: Sustentabilidade nas Grandes Cidades</h3>
+            <p><strong>Proposta:</strong> Analise os desafios e soluções para o desenvolvimento sustentável em centros urbanos.</p>
+            
+            <div class="dica">
+                <h4>💡 Dicas para este tema:</h4>
+                <ul>
+                    <li>Mobilidade urbana e transporte público</li>
+                    <li>Gestão de resíduos e reciclagem</li>
+                    <li>Áreas verdes e qualidade do ar</li>
+                </ul>
+            </div>
+            
+            <button class="btn-tema" onclick="iniciarRedacao('Sustentabilidade nas Grandes Cidades')">
+                🖊️ Escrever Redação sobre este Tema
+            </button>
+        </div>
+
+        <!-- Materiais -->
+        <div class="tema-card">
+            <h3>📚 Materiais de Apoio</h3>
+            <a href="https://download.inep.gov.br/educacao_basica/enem/redacao/2023/Modelo_redacao_ENEM_2023.pdf" 
+               style="display: block; padding: 15px; background: var(--secondary); color: white; text-decoration: none; border-radius: 8px; margin: 10px 0; text-align: center;"
+               target="_blank">
+                📄 Modelo de Redação Nota 1000
+            </a>
+            <a href="https://blogdoenem.com.br/wp-content/uploads/2023/01/Manual-Redacao-ENEM-2023.pdf"
+               style="display: block; padding: 15px; background: #2ecc71; color: white; text-decoration: none; border-radius: 8px; margin: 10px 0; text-align: center;"
+               target="_blank">
+                📖 Manual Completo de Redação
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function iniciarRedacao(tema) {
+            const editorUrl = `https://docs.google.com/document/create?title=Redação ENEM - ${tema}`;
+            alert(`📝 Iniciando redação sobre: "${tema}"\n\nAbrindo editor...`);
+            window.open(editorUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
