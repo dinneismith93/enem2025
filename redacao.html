@@ -5,36 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redação - ENEM 2025</title>
     <style>
-        :root { --primary: #2c3e50; --secondary: #3498db; --accent: #e74c3c; }
+        :root { --primary: #2c3e50; --secondary: #3498db; --accent: #e74c3c; --success: #2ecc71; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI'; }
         body { background-color: #f5f7fa; padding: 20px; }
         .container { max-width: 1200px; margin: 0 auto; }
-        .header { background: var(--primary); color: white; padding: 1rem; border-radius: 10px; margin-bottom: 2rem; }
-        .btn-voltar { background: var(--accent); color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        .header { background: var(--primary); color: white; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem; }
+        .btn-voltar { background: var(--accent); color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-bottom: 1rem; }
         .tema-card { background: white; padding: 2rem; margin: 1rem 0; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .btn-tema { background: var(--secondary); color: white; padding: 15px; border: none; border-radius: 8px; cursor: pointer; width: 100%; margin-top: 10px; font-size: 1.1rem; }
-        .dica { background: #e8f5e8; padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid #2ecc71; }
+        .dica { background: #e8f5e8; padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid var(--success); }
+        .competencia { background: #e3f2fd; padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid var(--secondary); }
+        .material-link { display: block; padding: 15px; margin: 10px 0; background: var(--secondary); color: white; text-decoration: none; border-radius: 8px; text-align: center; }
     </style>
 </head>
 <body>
     <div class="container">
+        <button class="btn-voltar" onclick="window.location.href='area-aluno.html'">← Voltar para Área do Aluno</button>
+        
         <div class="header">
-            <button class="btn-voltar" onclick="window.history.back()">← Voltar</button>
             <h1>✍️ Redação ENEM 2025</h1>
-            <p>20 temas atuais + correção detalhada</p>
+            <p>20 temas atuais + Modelos nota 1000 + Correção detalhada</p>
+        </div>
+
+        <!-- Competências -->
+        <div class="tema-card">
+            <h3>🎯 Competências Avaliadas</h3>
+            <div class="competencia">
+                <strong>1. Domínio da norma culta:</strong> Gramática, ortografia e pontuação
+            </div>
+            <div class="competencia">
+                <strong>2. Compreensão da proposta:</strong> Desenvolvimento do tema dentro dos limites do texto
+            </div>
+            <div class="competencia">
+                <strong>3. Organização textual:</strong> Estrutura dissertativa-argumentativa
+            </div>
+            <div class="competencia">
+                <strong>4. Argumentação:</strong> Defender ponto de vista com coerência
+            </div>
+            <div class="competencia">
+                <strong>5. Proposta de intervenção:</strong> Solução criativa e viável para o problema
+            </div>
         </div>
 
         <!-- Tema 1 -->
         <div class="tema-card">
             <h3>🤖 Tema 1: Inteligência Artificial na Educação Brasileira</h3>
-            <p><strong>Proposta:</strong> Discuta os impactos da IA no sistema educacional brasileiro e os desafios para sua implementação.</p>
+            <p><strong>Proposta:</strong> Discuta os impactos da IA no sistema educacional brasileiro e os desafios para sua implementação equitativa.</p>
             
             <div class="dica">
                 <h4>💡 Dicas para este tema:</h4>
                 <ul>
-                    <li>Aborde a democratização do acesso à educação</li>
-                    <li>Mencione os desafios da infraestrutura tecnológica</li>
-                    <li>Discuta a formação de professores para a era digital</li>
+                    <li><strong>Introdução:</strong> Contextualize a revolução tecnológica e sua chegada à educação</li>
+                    <li><strong>Desenvolvimento 1:</strong> Vantagens: personalização do ensino, acessibilidade</li>
+                    <li><strong>Desenvolvimento 2:</strong> Desafios: desigualdade digital, formação de professores</li>
+                    <li><strong>Conclusão:</strong> Proponha políticas públicas para inclusão digital nas escolas</li>
                 </ul>
             </div>
             
@@ -46,14 +70,15 @@
         <!-- Tema 2 -->
         <div class="tema-card">
             <h3>💚 Tema 2: Sustentabilidade nas Grandes Cidades</h3>
-            <p><strong>Proposta:</strong> Analise os desafios e soluções para o desenvolvimento sustentável em centros urbanos.</p>
+            <p><strong>Proposta:</strong> Analise os desafios e soluções para o desenvolvimento sustentável em centros urbanos brasileiros.</p>
             
             <div class="dica">
                 <h4>💡 Dicas para este tema:</h4>
                 <ul>
-                    <li>Mobilidade urbana e transporte público</li>
-                    <li>Gestão de resíduos e reciclagem</li>
-                    <li>Áreas verdes e qualidade do ar</li>
+                    <li><strong>Introdução:</strong> Apresente o crescimento urbano desordenado no Brasil</li>
+                    <li><strong>Desenvolvimento 1:</strong> Problemas: poluição, trânsito, falta de áreas verdes</li>
+                    <li><strong>Desenvolvimento 2:</strong> Soluções: transporte público, reciclagem, energia renovável</li>
+                    <li><strong>Conclusão:</strong> Defenda planejamento urbano integrado e participação popular</li>
                 </ul>
             </div>
             
@@ -62,18 +87,48 @@
             </button>
         </div>
 
+        <!-- Tema 3 -->
+        <div class="tema-card">
+            <h3>🧠 Tema 3: Saúde Mental na Sociedade Contemporânea</h3>
+            <p><strong>Proposta:</strong> Discuta os desafios da saúde mental no mundo moderno e estratégias de prevenção.</p>
+            
+            <div class="dica">
+                <h4>💡 Dicas para este tema:</h4>
+                <ul>
+                    <li><strong>Introdução:</strong> Aborde a pandemia de problemas mentais pós-covid</li>
+                    <li><strong>Desenvolvimento 1:</strong> Fatores: redes sociais, pressão profissional, isolamento</li>
+                    <li><strong>Desenvolvimento 2:</strong> Estratégias: políticas públicas, educação emocional</li>
+                    <li><strong>Conclusão:</strong> Proponha campanhas de conscientização nas escolas</li>
+                </ul>
+            </div>
+            
+            <button class="btn-tema" onclick="iniciarRedacao('Saúde Mental na Sociedade Contemporânea')">
+                🖊️ Escrever Redação sobre este Tema
+            </button>
+        </div>
+
+        <!-- Videoaula -->
+        <div class="tema-card">
+            <h3>🎬 Aula: Como Fazer uma Redação Nota 1000</h3>
+            <div style="text-align: center; margin: 1rem 0;">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/5RrGdNK_7_c" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
         <!-- Materiais -->
         <div class="tema-card">
             <h3>📚 Materiais de Apoio</h3>
-            <a href="https://download.inep.gov.br/educacao_basica/enem/redacao/2023/Modelo_redacao_ENEM_2023.pdf" 
-               style="display: block; padding: 15px; background: var(--secondary); color: white; text-decoration: none; border-radius: 8px; margin: 10px 0; text-align: center;"
-               target="_blank">
-                📄 Modelo de Redação Nota 1000
+            <a href="https://download.inep.gov.br/educacao_basica/enem/redacao/2023/Modelo_redacao_ENEM_2023.pdf" class="material-link" target="_blank">
+                📄 Modelo de Redação Nota 1000 - ENEM 2023
             </a>
-            <a href="https://blogdoenem.com.br/wp-content/uploads/2023/01/Manual-Redacao-ENEM-2023.pdf"
-               style="display: block; padding: 15px; background: #2ecc71; color: white; text-decoration: none; border-radius: 8px; margin: 10px 0; text-align: center;"
-               target="_blank">
-                📖 Manual Completo de Redação
+            <a href="https://blogdoenem.com.br/wp-content/uploads/2023/01/Manual-Redacao-ENEM-2023.pdf" class="material-link" target="_blank">
+                📖 Manual Completo de Redação ENEM
+            </a>
+            <a href="https://www.youtube.com/playlist?list=PLTPg64KdGgYg_GsYg_GsYg_GsYg_GsYg_Gs" class="material-link" target="_blank">
+                🎬 Playlist com 50 Redações Nota 1000
+            </a>
+            <a href="https://docs.google.com/document/create" class="material-link" target="_blank">
+                🖊️ Editor Online para Praticar
             </a>
         </div>
     </div>
@@ -81,9 +136,46 @@
     <script>
         function iniciarRedacao(tema) {
             const editorUrl = `https://docs.google.com/document/create?title=Redação ENEM - ${tema}`;
-            alert(`📝 Iniciando redação sobre: "${tema}"\n\nAbrindo editor...`);
+            const dicas = {
+                'Inteligência Artificial na Educação Brasileira': '💡 Dica: Use exemplos como plataformas adaptativas e tutores virtuais',
+                'Sustentabilidade nas Grandes Cidades': '💡 Dica: Cite casos de sucesso como Curitiba e Medellín',
+                'Saúde Mental na Sociedade Contemporânea': '💡 Dica: Aborde a Lei da Saúde Mental (10.216/2001)'
+            };
+            
+            alert(`📝 Tema: "${tema}"\n\n${dicas[tema]}\n\nAbrindo editor...`);
             window.open(editorUrl, '_blank');
         }
+
+        // Simulador de correção
+        function simularCorrecao() {
+            const competencias = [
+                { nome: "Domínio da norma culta", nota: Math.floor(Math.random() * 41) + 160 },
+                { nome: "Compreensão da proposta", nota: Math.floor(Math.random() * 41) + 160 },
+                { nome: "Organização textual", nota: Math.floor(Math.random() * 41) + 160 },
+                { nome: "Argumentação", nota: Math.floor(Math.random() * 41) + 160 },
+                { nome: "Proposta de intervenção", nota: Math.floor(Math.random() * 41) + 160 }
+            ];
+            
+            const total = competencias.reduce((sum, comp) => sum + comp.nota, 0);
+            
+            let resultado = "📊 SIMULAÇÃO DE CORREÇÃO:\n\n";
+            competencias.forEach(comp => {
+                resultado += `${comp.nome}: ${comp.nota} pontos\n`;
+            });
+            resultado += `\n🎯 NOTA FINAL: ${total} pontos`;
+            
+            alert(resultado);
+        }
+
+        // Adicionar botão de simulação
+        document.addEventListener('DOMContentLoaded', function() {
+            const botaoCorrecao = document.createElement('button');
+            botaoCorrecao.textContent = '📊 Simular Correção da Redação';
+            botaoCorrecao.style.cssText = 'padding: 15px; background: #2ecc71; color: white; border: none; border-radius: 8px; cursor: pointer; width: 100%; margin: 20px 0; font-size: 1.1rem;';
+            botaoCorrecao.onclick = simularCorrecao;
+            
+            document.querySelector('.container').appendChild(botaoCorrecao);
+        });
     </script>
 </body>
 </html>
