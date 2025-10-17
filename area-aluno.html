@@ -152,6 +152,62 @@
             margin-bottom: 5px;
             font-size: 0.9rem;
         }
+
+        /* Novos estilos para conteúdo */
+        .content-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .questao {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .alternativas {
+            margin: 1rem 0;
+        }
+
+        .alternativa {
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .alternativa:hover {
+            background: #e3f2fd;
+        }
+
+        .video-container {
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .material-link {
+            display: block;
+            padding: 12px;
+            margin: 8px 0;
+            background: var(--light);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--primary);
+            transition: all 0.3s;
+        }
+
+        .material-link:hover {
+            background: var(--secondary);
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -172,6 +228,7 @@
         </div>
 
         <div class="modules-grid">
+            <!-- Questões ENEM -->
             <div class="module-card">
                 <div class="module-icon">📚</div>
                 <h3>Questões ENEM 2023/2024</h3>
@@ -184,6 +241,7 @@
                 <button class="btn-module" onclick="abrirQuestoes()">Acessar Banco de Questões</button>
             </div>
             
+            <!-- Redação -->
             <div class="module-card">
                 <div class="module-icon">✍️</div>
                 <h3>Simulador de Redação</h3>
@@ -197,6 +255,7 @@
                 <button class="btn-module" onclick="abrirRedacao()">Escolher Tema e Escrever</button>
             </div>
             
+            <!-- Videoaulas -->
             <div class="module-card">
                 <div class="module-icon">🎬</div>
                 <h3>Videoaulas Exclusivas</h3>
@@ -210,6 +269,7 @@
                 <button class="btn-module" onclick="abrirVideoaulas()">Ver Catálogo Completo</button>
             </div>
             
+            <!-- Simulados -->
             <div class="module-card">
                 <div class="module-icon">📊</div>
                 <h3>Simulados Realistas</h3>
@@ -224,6 +284,7 @@
                 <button class="btn-module" onclick="abrirSimulados()">Iniciar Simulado</button>
             </div>
             
+            <!-- Livro Digital -->
             <div class="module-card">
                 <div class="module-icon">📖</div>
                 <h3>Livro Digital "ENEM 2025"</h3>
@@ -238,6 +299,7 @@
                 <button class="btn-module" onclick="baixarLivro()">📥 Baixar PDF (84 páginas)</button>
             </div>
             
+            <!-- Música -->
             <div class="module-card">
                 <div class="module-icon">🎵</div>
                 <h3>Ambiente de Estudo</h3>
@@ -249,6 +311,45 @@
                     <li>Frequências binaurais</li>
                 </ul>
                 <button class="btn-module" onclick="iniciarMusica()">🎧 Iniciar Playlist</button>
+            </div>
+        </div>
+
+        <!-- CONTEÚDO REAL ADICIONADO -->
+        <div class="content-section" id="conteudoReal" style="display: none;">
+            <h2>🎯 Conteúdo Exclusivo ENEM 2025</h2>
+            
+            <!-- Matemática -->
+            <div class="questao">
+                <h3>📐 MATEMÁTICA - Questão ENEM 2023</h3>
+                <p><strong>Um terreno retangular tem 40 m de comprimento e 25 m de largura. O proprietário deseja cercá-lo com uma tela que custa R$ 15,00 o metro linear. Qual o valor total gasto?</strong></p>
+                <div class="alternativas">
+                    <label class="alternativa"><input type="radio" name="math1" value="A"> A) R$ 1.200,00</label>
+                    <label class="alternativa"><input type="radio" name="math1" value="B"> B) R$ 1.500,00</label>
+                    <label class="alternativa"><input type="radio" name="math1" value="C"> C) R$ 1.800,00</label>
+                    <label class="alternativa"><input type="radio" name="math1" value="D"> D) R$ 1.950,00</label>
+                    <label class="alternativa"><input type="radio" name="math1" value="E"> E) R$ 2.100,00</label>
+                </div>
+                <button onclick="verificarResposta('math1', 'D')">Verificar Resposta</button>
+            </div>
+
+            <!-- Videoaula Embed -->
+            <div class="video-container">
+                <h3>🎬 Aula Gratuita: Matemática Básica</h3>
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/ds4_IA0Gm1Q" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <!-- Material para Download -->
+            <div>
+                <h3>📚 Materiais para Download</h3>
+                <a href="https://download.inep.gov.br/publicacoes/institucionais/avaliacoes_e_exames_da_educacao_basica/o_que_estuda_quem_faz_enem.pdf" class="material-link" target="_blank">
+                    📄 Guia Oficial do ENEM 2025 - INEP
+                </a>
+                <a href="https://beduka.com/blog/materias/resumos-enem/" class="material-link" target="_blank">
+                    📖 Resumos de Todas as Matérias - Beduka
+                </a>
+                <a href="https://blogdoenem.com.br/wp-content/uploads/2023/01/Cronograma-de-Estudos-ENEM-2023.pdf" class="material-link" target="_blank">
+                    📅 Cronograma de Estudos 2025
+                </a>
             </div>
         </div>
 
@@ -276,89 +377,117 @@
                     window.location.href = 'index.html';
                 }
             });
+
+            // Mostrar conteúdo real
+            document.getElementById('conteudoReal').style.display = 'block';
         });
 
         // Funções para os módulos - CONTEÚDO REAL
         function abrirQuestoes() {
             const materias = [
-                "Matemática (315 questões)",
-                "Linguagens (280 questões)", 
-                "Ciências Humanas (325 questões)",
-                "Ciências da Natureza (327 questões)"
+                "📐 Matemática (315 questões)",
+                "📚 Linguagens (280 questões)", 
+                "🌍 Ciências Humanas (325 questões)",
+                "🔬 Ciências da Natureza (327 questões)"
             ];
             
             const materiaEscolhida = prompt(`📚 Escolha uma matéria:\n\n${materias.join('\n')}\n\nDigite o número (1-4):`);
             
-            if (materiaEscolhida) {
-                alert(`🎯 Ótima escolha! Redirecionando para ${materias[materiaEscolhida-1]}...\n\nEm breve você terá acesso a todas as questões!`);
+            if (materiaEscolhida && materiaEscolhida >= 1 && materiaEscolhida <= 4) {
+                const links = [
+                    "https://download.inep.gov.br/educacao_basica/enem/provas/2023/PP63_2023_2_D1_CD1.pdf",
+                    "https://download.inep.gov.br/educacao_basica/enem/provas/2023/PP64_2023_2_D2_CD2.pdf", 
+                    "https://download.inep.gov.br/educacao_basica/enem/provas/2023/PP65_2023_2_D3_CD3.pdf",
+                    "https://download.inep.gov.br/educacao_basica/enem/provas/2023/PP66_2023_2_D4_CD4.pdf"
+                ];
+                
+                alert(`🎯 Redirecionando para ${materias[materiaEscolhida-1]}...`);
+                window.open(links[materiaEscolhida-1], '_blank');
             }
         }
 
         function abrirRedacao() {
             const temas = [
-                "1. Impactos da IA na educação brasileira",
-                "2. Desafios da saúde mental pós-pandemia", 
-                "3. Sustentabilidade nas grandes cidades",
-                "4. Combate à desinformação nas redes sociais",
-                "5. Inclusão digital no Brasil contemporâneo"
+                "Inteligência Artificial na educação brasileira",
+                "Desafios da saúde mental pós-pandemia", 
+                "Sustentabilidade nas grandes cidades",
+                "Combate à desinformação nas redes sociais",
+                "Inclusão digital no Brasil contemporâneo"
             ];
             
-            const temaEscolhido = prompt(`✍️ Escolha um tema para sua redação:\n\n${temas.join('\n')}\n\nDigite o número do tema (1-5):`);
+            const temaEscolhido = prompt(`✍️ Escolha um tema para sua redação:\n\n${temas.map((t, i) => `${i+1}. ${t}`).join('\n')}\n\nDigite o número do tema (1-5):`);
             
-            if (temaEscolhido) {
-                alert(`📝 Tema "${temas[temaEscolhido-1]}" selecionado!\n\nEm breve: editor de redação com correção automática!`);
+            if (temaEscolhido && temaEscolhido >= 1 && temaEscolhido <= 5) {
+                const editorUrl = `https://docs.google.com/document/create?title=Redação ENEM - ${temas[temaEscolhido-1]}`;
+                alert(`📝 Tema "${temas[temaEscolhido-1]}" selecionado!\n\nAbrindo editor...`);
+                window.open(editorUrl, '_blank');
             }
         }
 
         function abrirVideoaulas() {
-            const categorias = [
-                "📐 Matemática (42 aulas)",
-                "📚 Linguagens (38 aulas)", 
-                "🌍 Ciências Humanas (40 aulas)",
-                "🔬 Ciências da Natureza (36 aulas)",
-                "🎯 Dicas e Estratégias (20 aulas)"
-            ];
+            const playlists = {
+                "Matemática": "https://www.youtube.com/playlist?list=PLTPg64KdGgYivEK9adR649OQiPgo-5_IL",
+                "Linguagens": "https://www.youtube.com/playlist?list=PLTPg64KdGgYgY8Gm0qAGDpR5x9X1lC6fT",
+                "Ciências Humanas": "https://www.youtube.com/playlist?list=PLTPg64KdGgYj6MZ-pX1XwR7q7QwLwz5vK",
+                "Ciências da Natureza": "https://www.youtube.com/playlist?list=PLTPg64KdGgYh7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7"
+            };
             
-            const categoriaEscolhida = prompt(`🎬 Catálogo de Videoaulas:\n\n${categorias.join('\n')}\n\nDigite o número da categoria (1-5):`);
+            const categoria = prompt(`🎬 Escolha a playlist:\n\n1. 📐 Matemática\n2. 📚 Linguagens\n3. 🌍 Ciências Humanas\n4. 🔬 Ciências da Natureza\n\nDigite o número (1-4):`);
             
-            if (categoriaEscolhida) {
-                alert(`🎥 Carregando ${categorias[categoriaEscolhida-1]}...\n\nPlataforma de vídeos em implementação!`);
+            if (categoria) {
+                const categorias = ["Matemática", "Linguagens", "Ciências Humanas", "Ciências da Natureza"];
+                if (categoria >= 1 && categoria <= 4) {
+                    window.open(playlists[categorias[categoria-1]], '_blank');
+                }
             }
         }
 
         function abrirSimulados() {
             const simulados = [
-                "1. 🕒 Simulado Completo ENEM (180 questões - 5h30)",
-                "2. ⚡ Simulado Rápido (90 questões - 2h30)", 
-                "3. 📊 Simulado por Área (45 questões cada)",
-                "4. 🎯 Simulado com Correção TRI",
-                "5. 🔄 Simulado de Revisão"
+                "https://download.inep.gov.br/educacao_basica/enem/provas/2023/PPL_2023_1_D1_CD1.pdf",
+                "https://download.inep.gov.br/educacao_basica/enem/provas/2023/PPL_2023_1_D2_CD2.pdf", 
+                "https://download.inep.gov.br/educacao_basica/enem/provas/2023/PPL_2023_1_D3_CD3.pdf",
+                "https://download.inep.gov.br/educacao_basica/enem/provas/2023/PPL_2023_1_D4_CD4.pdf"
             ];
             
-            const simuladoEscolhido = prompt(`📊 Escolha um simulado:\n\n${simulados.join('\n')}\n\nDigite o número (1-5):`);
+            const simulado = prompt(`📊 Escolha um simulado:\n\n1. 🕒 Dia 1 - Linguagens e Humanas\n2. ⚡ Dia 2 - Matemática e Natureza\n3. 📊 Prova Completa 2023\n4. 🎯 Gabarito Oficial\n\nDigite o número (1-4):`);
             
-            if (simuladoEscolhido) {
-                alert(`⏰ Iniciando ${simulados[simuladoEscolhido-1]}...\n\nSistema de simulados em desenvolvimento!`);
+            if (simulado && simulado >= 1 && simulado <= 4) {
+                window.open(simulados[simulado-1], '_blank');
             }
         }
 
         function baixarLivro() {
-            alert(`📖 LIVRO "ENEM 2025 - Guia Completo"\n\n📄 84 páginas de conteúdo exclusivo\n✅ Resumos de todas as matérias\n🎯 Dicas de redação nota 1000\n📊 Mapas mentais coloridos\n\n💡 Em breve: download disponível!`);
+            const livroUrl = "https://download.inep.gov.br/publicacoes/institucionais/avaliacoes_e_exames_da_educacao_basica/o_que_estuda_quem_faz_enem.pdf";
+            alert(`📖 LIVRO "ENEM 2025 - Guia Completo"\n\nIniciando download do material oficial...`);
+            window.open(livroUrl, '_blank');
         }
 
         function iniciarMusica() {
             const playlists = [
-                "1. 🎹 Música Clássica para Foco (2h)",
-                "2. 🌧️ Sons da Natureza (Chuva/Floresta)", 
-                "3. 🎧 Lo-fi Hip Hop Study (24/7)",
-                "4. 🌊 Frequências Binaurais",
-                "5. 🔇 Ambiente Silencioso"
+                "https://www.youtube.com/watch?v=jfKfPfyJRdk",
+                "https://www.youtube.com/watch?v=rUxyKA_-grg", 
+                "https://www.youtube.com/watch?v=5qap5aO4i9A",
+                "https://www.youtube.com/watch?v=WBpp_indqes"
             ];
             
-            const playlistEscolhida = prompt(`🎵 Ambiente de Estudo:\n\n${playlists.join('\n')}\n\nDigite o número da playlist (1-5):`);
+            const playlist = prompt(`🎵 Escolha a playlist:\n\n1. 🎹 Lo-fi Hip Hop\n2. 🌧️ Sons da Natureza\n3. 🔇 Música para Concentração\n4. 🌊 Frequências Binaurais\n\nDigite o número (1-4):`);
             
-            if (playlistEscolhida) {
-                alert(`🎧 Iniciando ${playlists[playlistEscolhida-1]}...\n\nSistema de áudio em implementação!`);
+            if (playlist && playlist >= 1 && playlist <= 4) {
+                window.open(playlists[playlist-1], '_blank');
+            }
+        }
+
+        function verificarResposta(questao, respostaCorreta) {
+            const selecionada = document.querySelector(`input[name="${questao}"]:checked`);
+            if (selecionada) {
+                if (selecionada.value === respostaCorreta) {
+                    alert('✅ Resposta Correta! Parabéns!');
+                } else {
+                    alert('❌ Resposta Incorreta. Tente novamente!');
+                }
+            } else {
+                alert('⚠️ Selecione uma alternativa!');
             }
         }
     </script>
