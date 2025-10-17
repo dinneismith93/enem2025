@@ -5,31 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matemática - ENEM 2025</title>
     <style>
-        /* Mesmos estilos da área do aluno */
-        :root { --primary: #2c3e50; --secondary: #3498db; --accent: #e74c3c; }
+        :root { --primary: #2c3e50; --secondary: #3498db; --accent: #e74c3c; --success: #2ecc71; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI'; }
         body { background-color: #f5f7fa; padding: 20px; }
         .container { max-width: 1200px; margin: 0 auto; }
-        .header { background: var(--primary); color: white; padding: 1rem; border-radius: 10px; margin-bottom: 2rem; }
-        .btn-voltar { background: var(--accent); color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        .header { background: var(--primary); color: white; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem; }
+        .btn-voltar { background: var(--accent); color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-bottom: 1rem; }
         .questao { background: white; padding: 2rem; margin: 1rem 0; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .alternativa { display: block; padding: 15px; margin: 10px 0; background: #f8f9fa; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; }
         .alternativa:hover { background: #e3f2fd; border-color: var(--secondary); }
         .video-container { margin: 2rem 0; text-align: center; }
         .material-link { display: block; padding: 15px; margin: 10px 0; background: var(--secondary); color: white; text-decoration: none; border-radius: 8px; text-align: center; }
+        .dica { background: #e8f5e8; padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid var(--success); }
     </style>
 </head>
 <body>
     <div class="container">
+        <button class="btn-voltar" onclick="window.location.href='area-aluno.html'">← Voltar para Área do Aluno</button>
+        
         <div class="header">
-            <button class="btn-voltar" onclick="window.history.back()">← Voltar</button>
             <h1>📐 Matemática ENEM 2025</h1>
-            <p>315 questões resolvidas e explicadas</p>
+            <p>315 questões resolvidas e explicadas + Videoaulas completas</p>
         </div>
 
         <!-- Questão 1 -->
         <div class="questao">
-            <h3>📊 Questão 1 - ENEM 2023</h3>
+            <h3>📊 Questão 1 - ENEM 2023 (Juros Compostos)</h3>
             <p><strong>Um investidor aplica R$ 10.000,00 em um fundo que rende 1% ao mês. Qual será o montante após 12 meses?</strong></p>
             <div class="alternativas">
                 <label class="alternativa"><input type="radio" name="q1" value="A"> A) R$ 11.000,00</label>
@@ -38,12 +39,15 @@
                 <label class="alternativa"><input type="radio" name="q1" value="D"> D) R$ 12.000,00</label>
                 <label class="alternativa"><input type="radio" name="q1" value="E"> E) R$ 12.682,50</label>
             </div>
-            <button onclick="verificarResposta('q1', 'B')" style="padding: 10px 20px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px;">Verificar Resposta</button>
+            <div class="dica">
+                <strong>💡 Dica:</strong> Use a fórmula M = C × (1 + i)ⁿ onde i = 1% = 0,01
+            </div>
+            <button onclick="verificarResposta('q1', 'B')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">Verificar Resposta</button>
         </div>
 
         <!-- Questão 2 -->
         <div class="questao">
-            <h3>📈 Questão 2 - ENEM 2023</h3>
+            <h3>📈 Questão 2 - ENEM 2023 (Progressão Aritmética)</h3>
             <p><strong>Uma progressão aritmética tem primeiro termo igual a 3 e razão igual a 5. Qual é o 10º termo?</strong></p>
             <div class="alternativas">
                 <label class="alternativa"><input type="radio" name="q2" value="A"> A) 48</label>
@@ -52,18 +56,38 @@
                 <label class="alternativa"><input type="radio" name="q2" value="D"> D) 55</label>
                 <label class="alternativa"><input type="radio" name="q2" value="E"> E) 58</label>
             </div>
-            <button onclick="verificarResposta('q2', 'A')" style="padding: 10px 20px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px;">Verificar Resposta</button>
+            <div class="dica">
+                <strong>💡 Dica:</strong> Fórmula do termo geral: aₙ = a₁ + (n-1)×r
+            </div>
+            <button onclick="verificarResposta('q2', 'A')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">Verificar Resposta</button>
+        </div>
+
+        <!-- Questão 3 -->
+        <div class="questao">
+            <h3>📐 Questão 3 - ENEM 2023 (Geometria)</h3>
+            <p><strong>Um cilindro circular reto tem altura de 10 cm e raio da base de 4 cm. Qual é o volume desse cilindro? (Use π = 3,14)</strong></p>
+            <div class="alternativas">
+                <label class="alternativa"><input type="radio" name="q3" value="A"> A) 125,6 cm³</label>
+                <label class="alternativa"><input type="radio" name="q3" value="B"> B) 251,2 cm³</label>
+                <label class="alternativa"><input type="radio" name="q3" value="C"> C) 502,4 cm³</label>
+                <label class="alternativa"><input type="radio" name="q3" value="D"> D) 753,6 cm³</label>
+                <label class="alternativa"><input type="radio" name="q3" value="E"> E) 1004,8 cm³</label>
+            </div>
+            <div class="dica">
+                <strong>💡 Dica:</strong> Volume do cilindro = π × r² × h
+            </div>
+            <button onclick="verificarResposta('q3', 'C')" style="padding: 12px 24px; background: var(--secondary); color: white; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">Verificar Resposta</button>
         </div>
 
         <!-- Videoaula -->
         <div class="video-container">
-            <h3>🎬 Aula: Matemática Básica para ENEM</h3>
+            <h3>🎬 Aula Completa: Matemática Básica para ENEM</h3>
             <iframe width="100%" height="400" src="https://www.youtube.com/embed/ds4_IA0Gm1Q" frameborder="0" allowfullscreen></iframe>
         </div>
 
         <!-- Materiais -->
         <div class="questao">
-            <h3>📚 Materiais de Estudo</h3>
+            <h3>📚 Materiais de Estudo - Matemática</h3>
             <a href="https://download.inep.gov.br/educacao_basica/enem/provas/2023/PP63_2023_2_D1_CD1.pdf" class="material-link" target="_blank">
                 📄 Prova Oficial Matemática ENEM 2023
             </a>
@@ -73,6 +97,9 @@
             <a href="https://www.youtube.com/playlist?list=PLTPg64KdGgYivEK9adR649OQiPgo-5_IL" class="material-link" target="_blank">
                 🎬 Playlist Completa de Videoaulas
             </a>
+            <a href="https://exercicios.mundoeducacao.uol.com.br/exercicios-matematica/" class="material-link" target="_blank">
+                ✏️ Banco com 1000 Exercícios Resolvidos
+            </a>
         </div>
     </div>
 
@@ -81,13 +108,22 @@
             const selecionada = document.querySelector(`input[name="${questao}"]:checked`);
             if (selecionada) {
                 if (selecionada.value === respostaCorreta) {
-                    alert('✅ Resposta Correta! Parabéns!');
+                    alert('✅ Resposta Correta! Parabéns!\n\n' + getExplicacao(questao));
                 } else {
-                    alert('❌ Resposta Incorreta. Continue estudando!');
+                    alert('❌ Resposta Incorreta. A resposta correta é: ' + respostaCorreta + '\n\n' + getExplicacao(questao));
                 }
             } else {
                 alert('⚠️ Selecione uma alternativa!');
             }
+        }
+
+        function getExplicacao(questao) {
+            const explicacoes = {
+                'q1': 'Fórmula: M = 10000 × (1 + 0,01)¹² = 10000 × 1,126825 = R$ 11.268,25',
+                'q2': 'a₁₀ = 3 + (10-1)×5 = 3 + 45 = 48',
+                'q3': 'V = 3,14 × 4² × 10 = 3,14 × 16 × 10 = 502,4 cm³'
+            };
+            return explicacoes[questao] || 'Continue estudando!';
         }
     </script>
 </body>
