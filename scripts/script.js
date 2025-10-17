@@ -20,11 +20,10 @@ signupBtn.addEventListener('click', () => {
 });
 
 heroSignup.addEventListener('click', () => {
-    signupModal.style.display = 'flex';
+    window.location.href = 'https://mpago.la/2yXV9Nk';
 });
 
 pricingBtn.addEventListener('click', () => {
-    // ✅ DIRETO PARA PAGAMENTO SEM CADASTRO
     window.location.href = 'https://mpago.la/2yXV9Nk';
 });
 
@@ -60,24 +59,30 @@ window.addEventListener('click', (e) => {
     }
 });
 
-// Form submission - ATUALIZADO COM REDIRECIONAMENTO
-document.getElementById('loginForm').addEventListener('submit', (e) => {
+// ✅ FORM SUBMIT CORRIGIDO - LOGIN FUNCIONAL
+document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault();
+    
     const email = document.getElementById('loginEmail').value;
     const password = document.getElementById('loginPassword').value;
     
-    // Check if it's the admin account
+    console.log('Login attempt:', email, password);
+    
     if (email === 'dinneismith93@gmail.com' && password === 'Aa@12011993') {
-        alert('Login realizado com sucesso! Acesso vitalício concedido.');
+        alert('✅ Login realizado com sucesso! Redirecionando...');
         loginModal.style.display = 'none';
-        // ✅ REDIRECIONA PARA ÁREA DO ALUNO
-        window.location.href = 'area-aluno.html';
+        
+        // Redirecionamento garantido
+        setTimeout(function() {
+            window.location.href = 'area-aluno.html';
+        }, 1500);
     } else {
-        alert('E-mail ou senha incorretos. Tente novamente.');
+        alert('❌ E-mail ou senha incorretos. Tente novamente.');
     }
 });
 
-document.getElementById('signupForm').addEventListener('submit', (e) => {
+// Signup form
+document.getElementById('signupForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const name = document.getElementById('signupName').value;
     const email = document.getElementById('signupEmail').value;
@@ -89,40 +94,37 @@ document.getElementById('signupForm').addEventListener('submit', (e) => {
         return;
     }
     
-    alert(`Cadastro realizado com sucesso, ${name}! Redirecionando para pagamento...`);
+    alert(`Cadastro realizado, ${name}! Redirecionando para pagamento...`);
     signupModal.style.display = 'none';
     
-    // ✅ REDIRECIONAMENTO DIRETO PARA MERCADO PAGO
-    setTimeout(() => {
+    setTimeout(function() {
         window.location.href = 'https://mpago.la/2yXV9Nk';
-    }, 1000);
+    }, 1500);
 });
 
 // Music toggle
 const musicToggle = document.getElementById('musicToggle');
 let isPlaying = false;
 
-musicToggle.addEventListener('click', () => {
+musicToggle.addEventListener('click', function() {
     isPlaying = !isPlaying;
     musicToggle.textContent = isPlaying ? '🔇' : '🎵';
-    // Em um site real, aqui você iniciaria/pararia o áudio
+    console.log('Música:', isPlaying ? 'Ligada' : 'Desligada');
+    
+    // Simular música ambiente
     if (isPlaying) {
-        // audioPlayer.play();
-        console.log('Música iniciada');
+        document.body.style.background = "linear-gradient(45deg, #f5f7fa, #e3f2fd)";
     } else {
-        // audioPlayer.pause();
-        console.log('Música pausada');
+        document.body.style.background = "#f5f7fa";
     }
 });
 
-// Smooth scrolling for anchor links
+// Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        
         const targetId = this.getAttribute('href');
         if (targetId === '#') return;
-        
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
             window.scrollTo({
@@ -133,32 +135,62 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Sistema de usuários (simulação)
-function inicializarUsuarios() {
-    if (!localStorage.getItem('usuarios')) {
-        localStorage.setItem('usuarios', JSON.stringify([]));
+// Sistema de progresso
+function atualizarProgresso() {
+    const progresso = localStorage.getItem('progressoENEM') || '0';
+    const progressoNum = parseInt(progresso);
+    
+    if (progressoNum < 100) {
+        const novoProgresso = progressoNum + 5;
+        localStorage.setItem('progressoENEM', novoProgresso.toString());
+        
+        // Atualizar barra de progresso se existir
+        const progressFill = document.querySelector('.progress-fill');
+        if (progressFill) {
+            progressFill.style.width = novoProgresso + '%';
+            document.querySelector('.progress-section strong').textContent = novoProgresso + '% completo';
+        }
     }
 }
 
-// Função de pagamento direto
-function processarPagamento() {
-    alert('Redirecionando para pagamento seguro...');
-    window.location.href = 'https://mpago.la/2yXV9Nk';
-}
-
-// Inicializar quando a página carregar
+// Initialize
 document.addEventListener('DOMContentLoaded', function() {
-    inicializarUsuarios();
-    console.log('Site ENEM 2025 carregado com sucesso!');
+    console.log('✅ Site ENEM 2025 carregado!');
     
-    // Verificar se veio da área do aluno (logout)
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('logout') === 'true') {
-        alert('Logout realizado com sucesso!');
+    // Verificar progresso salvo
+    const progresso = localStorage.getItem('progressoENEM') || '35';
+    const progressFill = document.querySelector('.progress-fill');
+    if (progressFill) {
+        progressFill.style.width = progresso + '%';
+        document.querySelector('.progress-section strong').textContent = progresso + '% completo';
     }
     
-    // Adicionar evento de pagamento ao botão hero
-    document.getElementById('heroSignup').addEventListener('click', function() {
-        window.location.href = 'https://mpago.la/2yXV9Nk';
+    // Adicionar evento de clique em questões para atualizar progresso
+    document.querySelectorAll('.btn-module, .alternativa').forEach(element => {
+        element.addEventListener('click', function() {
+            setTimeout(atualizarProgresso, 1000);
+        });
     });
 });
+
+// Funções globais para as páginas de conteúdo
+function verificarResposta(questao, respostaCorreta) {
+    const selecionada = document.querySelector(`input[name="${questao}"]:checked`);
+    if (selecionada) {
+        if (selecionada.value === respostaCorreta) {
+            alert('✅ Resposta Correta! Parabéns!\n\nContinue assim!');
+            atualizarProgresso();
+        } else {
+            alert('❌ Resposta Incorreta. A resposta correta é: ' + respostaCorreta + '\n\nEstude mais esta matéria!');
+        }
+    } else {
+        alert('⚠️ Selecione uma alternativa!');
+    }
+}
+
+function iniciarRedacao(tema) {
+    const editorUrl = `https://docs.google.com/document/create?title=Redação ENEM - ${tema}`;
+    alert(`📝 Iniciando redação sobre: "${tema}"\n\nAbrindo editor...`);
+    window.open(editorUrl, '_blank');
+    atualizarProgresso();
+}
